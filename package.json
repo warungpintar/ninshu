@@ -1,0 +1,36 @@
+{
+  "name": "@warungpintar/ninshuu",
+  "version": "0.0.1",
+  "repository": "git@gitlab.warungpintar.co:frontend/ninshuu.git",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/src/index.gen.d.ts",
+  "scripts": {
+    "build": "bsb -make-world",
+    "clean": "bsb -clean-world",
+    "start": "bsb -make-world -w",
+    "build:minify": "rollup -c rollup-terser.config.js",
+    "build:temp": "npx esbuild dist/index.temp.js --bundle --platform=node --outfile=dist/index.bundle.js --format=cjs",
+    "build:clean": "rm dist/*.bundle.js && rm dist/*.temp.js && rm dist/*.bs.js",
+    "build:js": "rimraf dist && rollup -c rollup.config.js && yarn run build:temp && yarn run build:minify && yarn run build:clean",
+    "doc": "typedoc --theme minimal --out dist/docs src",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.6.0",
+    "@rescript/std": "^9.0.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.1.1",
+    "@types/node": "^14.14.25",
+    "bs-platform": "*",
+    "esbuild": "^0.8.43",
+    "gentype": "^3.43.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.38.5",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typedoc": "^0.20.23",
+    "typescript": "^4.1.4"
+  }
+}

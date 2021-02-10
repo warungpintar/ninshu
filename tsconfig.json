@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "lib": [
+      "es2017"
+    ],
+    "strict": true,
+    "esModuleInterop": false,
+    "outDir": "dist",
+    "allowJs": true,
+    "declaration": true,
+    "rootDir": "./"
+  },
+  "include": [
+    "./src/index.gen.tsx"
+  ]
+}

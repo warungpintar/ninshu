@@ -1,0 +1,18 @@
+image: node:14.15.4-slim
+
+stages:
+  - test
+
+before_script:
+  - yarn install
+
+est-unit:
+  stage: test
+  only:
+    - merge_requests
+  except:
+    variables:
+      - $CI_COMMIT_REF_NAME =~ /^skip/
+  script:
+    - yarn build
+    - yarn test

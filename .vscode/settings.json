@@ -1,0 +1,6 @@
+{
+  "editor.defaultFormatter": "chenglou92.rescript-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "reason.path.ocamlmerlin": "~/.opam/default/bin/ocamlmerlin"
+}

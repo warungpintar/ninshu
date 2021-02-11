@@ -14,7 +14,7 @@
     "build:temp": "npx esbuild dist/index.temp.js --bundle --platform=node --outfile=dist/index.bundle.js --format=cjs",
     "build:clean": "rm dist/*.bundle.js && rm dist/*.temp.js && rm dist/*.bs.js",
     "build:js": "rimraf dist && rollup -c rollup.config.js && yarn run build:temp && yarn run build:minify && yarn run build:clean",
-    "doc": "typedoc --theme minimal --out dist/docs src",
+    "doc": "typedoc --out dist/docs src",
     "test": "jest"
   },
   "devDependencies": {

@@ -12,9 +12,10 @@
     "outDir": "dist",
     "allowJs": true,
     "declaration": true,
+    "jsx": "preserve",
     "rootDir": "./"
   },
   "include": [
-    "./src/index.gen.tsx"
+    "./src/*.tsx"
   ]
 }

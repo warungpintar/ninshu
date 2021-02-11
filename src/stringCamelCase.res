@@ -1,20 +1,18 @@
-// Support camel case ("camelCase" -> "camel Case" and "CAMELCase" -> "CAMEL Case").
-let defaultSplitRegexp = [%re("/([a-z0-9])([A-Z])/g"), %re("/([A-Z])([A-Z][a-z])/g")];
+// camelCase regex
+let camelCaseRegexp = %re(
+  "/^[a-z]([A-Z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*/g"
+)
 
-// Remove all non-word characters.
-let defaultStriptRegexp = %re("/[^A-Z0-9]+/gi");
-
-let stripNonWord = (input) =>
+let isCamelCase = input =>
   input
-    ->Js.String2.replaceByRe(defaultStriptRegexp, "")
+  ->Common.integrityMap("", x => x->Common.typeof("string"))
+  ->Js.String2.match_(camelCaseRegexp) == Some([input])
 
-let splitCamelWord = (input, delimiter) => {
-  let _delimiter = switch delimiter {
-  | Some(del) => del
-  | None => ":=:"
-  }
+let toCamelCase = input => {
   input
-    ->Js.String2.replaceByRe(defaultSplitRegexp[0], "$1" ++ _delimiter ++ "$2")
-    ->Js.String2.replaceByRe(defaultSplitRegexp[1], "$1" ++ _delimiter ++ "$2")
-    ->Js.String2.split(_delimiter)
+  ->Common.integrityMap("", x => x->Common.typeof("string"))
+  ->StringCommon.noCase
+  ->Js.Array2.map(x => x->Js.String2.toLowerCase->StringCommon.firstLetterToUpper)
+  ->Js.Array2.joinWith("")
+  ->StringCommon.firstLetterToLower
 }

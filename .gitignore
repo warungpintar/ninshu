@@ -12,4 +12,5 @@ dist
 !scripts/*.js
 *.d.ts
 !.config.js
+!scripts/*.js
 internal

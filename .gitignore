@@ -5,4 +5,7 @@ dist
 .bsb.lock
 .merlin
 *.gen.tsx
-*.bs.js
+*.js
+*.d.ts
+!.config.js
+internal

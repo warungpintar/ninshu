@@ -6,6 +6,8 @@ dist
 .merlin
 *.gen.tsx
 *.js
+*.js.map
 *.d.ts
 !.config.js
+!scripts/*.js
 internal

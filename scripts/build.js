@@ -13,7 +13,7 @@ const declarationFileSpinner = ora("create ts declaration files");
 
 const rootPath = path.join(__dirname, "..");
 
-// lading and benchmarking
+// loading and benchmarking
 function bench(message = "") {
   const loading = ora(message);
   return {

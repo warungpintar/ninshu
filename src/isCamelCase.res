@@ -10,5 +10,5 @@
  ")
 export isCamelCase = input =>
   input
-  ->Common.integrityMap(false, x => x->Common.typeof("string"))
+  ->Common.integrityMap("", x => x->Common.typeof("string"))
   ->Js.String2.match_(Common.camelCaseRegexp) == Some([input])

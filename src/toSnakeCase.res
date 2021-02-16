@@ -13,10 +13,14 @@
  ")
 @genType
 export toSnakeCase = input => {
-  input
-  ->Common.integrityMap("", x => x->Common.typeof("string"))
-  ->NoCase.noCase
-  ->Js.Array2.filter(x => x != "")
-  ->Js.Array2.map(x => x->Js.String2.toLowerCase)
-  ->Js.Array2.joinWith("_")
+  if input->IsSnakeCase.isSnakeCase {
+    input
+  } else {
+    input
+    ->Common.integrityMap("", x => x->Common.typeof("string"))
+    ->NoCase.noCase
+    ->Js.Array2.filter(x => x != "")
+    ->Js.Array2.map(x => x->Js.String2.toLowerCase)
+    ->Js.Array2.joinWith("_")
+  }
 }

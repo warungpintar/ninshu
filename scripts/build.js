@@ -8,9 +8,6 @@ const path = require("path");
 const minimatch = require("minimatch");
 const fse = require("fs-extra");
 
-const gatherFileSpinner = ora("gathering all files");
-const declarationFileSpinner = ora("create ts declaration files");
-
 const rootPath = path.join(__dirname, "..");
 
 // loading and benchmarking

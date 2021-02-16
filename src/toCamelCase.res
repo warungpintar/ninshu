@@ -13,14 +13,10 @@
  ")
 @genType
 export toCamelCase = input => {
-  if input->IsCamelCase.isCamelCase {
-    input
-  } else {
-    input
-    ->Common.integrityMap("", x => x->Common.typeof("string"))
-    ->NoCase.noCase
-    ->Js.Array2.map(x => x->Js.String2.toLowerCase->FirstLetterToUpper.firstLetterToUpper)
-    ->Js.Array2.joinWith("")
-    ->FirstLetterToLower.firstLetterToLower
-  }
+  input
+  ->Common.integrityMap("", x => x->Common.typeof("string"))
+  ->NoCase.noCase
+  ->Js.Array2.map(x => x->Js.String2.toLowerCase->FirstLetterToUpper.firstLetterToUpper)
+  ->Js.Array2.joinWith("")
+  ->FirstLetterToLower.firstLetterToLower
 }

@@ -10,6 +10,14 @@ let defaultSplitRegexp = [%re("/([a-z0-9])([A-Z])/g"), %re("/([A-Z])([A-Z][a-z])
 // Remove all non-word characters.
 let defaultStriptRegexp = %re("/[^A-Z0-9]+/gi")
 
+let getObjVal = %raw(`
+  (input, key) => input[key]
+`)
+
+let createObj = %raw(`
+  (key, val) => ({[key]: val})
+`)
+
 let integrityMap = %raw(`
   value => defaultValue => validation => validation(value) ? value : defaultValue
 `)
@@ -26,6 +34,6 @@ let typeof = %raw(`
 
 let typeofs = %raw(`
   function(value, etypes = []) {
-    etypes.some(t => Common.typeof(value) === t)
+    etypes.some(t => typeof(value) === t)
   }
 `)

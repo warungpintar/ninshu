@@ -38,12 +38,12 @@ describe("String/CamelCase", () => {
   "check if the given string are camelCase"->testAll(testCases, t => {
     let (case, _, expected) = t
 
-    toEqual(expected, case->Index.isCamelCase->expect)
+    toEqual(expected, case->IsCamelCase.isCamelCase->expect)
   })
 
   "convert any case to camelCase"->testAll(testCases, t => {
     let (case, expected, _) = t
 
-    toEqual(expected, case->Index.toCamelCase->expect)
+    toEqual(expected, case->ToCamelCase.toCamelCase->expect)
   })
 })

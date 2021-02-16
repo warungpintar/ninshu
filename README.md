@@ -7,5 +7,5 @@ camel case
 - [x] toCamelCase
 
 snake case
-- [ ] isSnakeCase
-- [ ] toSnakeCase
+- [x] isSnakeCase
+- [x] toSnakeCase

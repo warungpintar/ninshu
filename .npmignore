@@ -1,3 +1,14 @@
+.vscode
 node_modules
 lib
+scripts
+internal
+dist
 __tests__
+
+.gitlab-ci.yml
+tsconfig.json
+yarn.lock
+README.md
+src/*.js
+src/*.gen.tsx

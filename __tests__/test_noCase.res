@@ -42,7 +42,7 @@ describe("String/Common", () => {
     t => {
       let (case, expected) = t
 
-      expected->toEqual(case->StringCommon.noCase->expect)
+      expected->toEqual(case->NoCase.noCase->expect)
     },
   )
 })

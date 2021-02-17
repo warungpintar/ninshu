@@ -1,0 +1,10 @@
+{
+  "name": "ninshu-benchmark",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@ridi/object-case-converter": "^2.0.4",
+    "benchmark": "^2.1.4"
+  }
+}

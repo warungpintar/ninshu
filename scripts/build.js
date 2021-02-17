@@ -99,24 +99,27 @@ function generateInternal() {
 function rewriteJs() {
   const measure = bench("rewrite js files");
   measure.start();
-  const files = fs.readdirSync(path.join(rootPath, "src"));
+  const files = fs.readdirSync(rootPath);
   const jsFiles = files.filter((f) => minimatch(f, "*.bs.js"));
 
   const functionNames = jsFiles.map((n) => {
-    let text = fs.readFileSync(path.join(rootPath, "src", n), {
+    let text = fs.readFileSync(path.join(rootPath, n), {
       encoding: "utf-8",
     });
     const name = n.replace(".bs.js", "");
     text = text
       .replace(/\.bs\.js/g, "")
-      // replace ./internal with ../internal
-      // if we want to bundle it using esbuild
-      // because the internal folder isn't exist in the dist folder
-      // TODO: using relative import
-      .replace(/bs-platform/g, "./internal")
-      .replace(`exports.${name}`, "exports");
+      .replace(`exports.${name} = ${name}`, `module.exports = ${name}`);
+    if (text.includes(`exports.${name}`)) {
+      text = text.concat(`\nexports = ${name}`);
+    }
 
-    fs.writeFileSync(path.join(rootPath, "dist", name + ".js"), text);
+    fs.unlinkSync(path.join(rootPath, name + ".bs.js"));
+    fs.renameSync(
+      path.join(rootPath, name + ".bs.js.map"),
+      path.join(rootPath, name + ".js.map")
+    );
+    fs.writeFileSync(path.join(rootPath, name + ".js"), text);
 
     return name;
   });
@@ -132,30 +135,30 @@ function rewriteJs() {
   )} };`;
 
   // write index.js
-  fs.writeFileSync(path.join(rootPath, "dist/index.js"), rawText);
+  fs.writeFileSync(path.join(rootPath, "index.js"), rawText);
 
   measure.stop();
 
-  return ["index", ...functionNames];
+  return functionNames;
 }
 
 console.time("total build time");
 cleanup();
 tsc();
-generateInternal();
-const functionNames = rewriteJs();
 
 const esbuildMeasurement = bench("esbuild");
 esbuildMeasurement.start();
+const files = fs.readdirSync(path.join(rootPath, "src"));
+const jsFiles = files.filter((f) => minimatch(f, "*.bs.js"));
 esbuild.buildSync({
-  entryPoints: functionNames.map((n) =>
-    path.join(rootPath, "dist", n.concat(".js"))
-  ),
-  bundle: false,
+  entryPoints: jsFiles.map((n) => path.join(rootPath, "src", n)),
+  bundle: true,
   sourcemap: true,
   minify: true,
+  format: "cjs",
   outdir: rootPath,
 });
+rewriteJs();
 esbuildMeasurement.stop();
 console.timeEnd("total build time");
 

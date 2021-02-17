@@ -1,4 +1,4 @@
-# Ninshuu
+# Ninshu
 
 ## Roadmap
 ### String

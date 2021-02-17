@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
-  "name": "ninshuu",
+  "name": "ninshu",
   "version": "0.0.1",
   "sources": [
     {

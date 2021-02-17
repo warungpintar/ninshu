@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+const rollup = require("rollup").rollup;
+const rollupAnalyzer = require("rollup-plugin-analyzer");
+const nodeResolve = require("@rollup/plugin-node-resolve").nodeResolve;
+const commonjs = require("@rollup/plugin-commonjs");
 const del = require("del");
 const esbuild = require("esbuild");
 const ora = require("ora");
@@ -154,3 +158,17 @@ esbuild.buildSync({
 });
 esbuildMeasurement.stop();
 console.timeEnd("total build time");
+
+// rollup analyze bundle size
+rollup({
+  input: "index.js",
+  plugins: [commonjs()],
+}).then((bundle) => {
+  rollupAnalyzer
+    .formatted(bundle, {
+      summaryOnly: true,
+      filter: ({ id }) => id?.indexOf("?commonjs-proxy") === -1,
+    })
+    .then(console.log)
+    .catch(console.error);
+});

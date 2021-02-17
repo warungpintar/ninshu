@@ -107,11 +107,9 @@ function rewriteJs() {
       encoding: "utf-8",
     });
     const name = n.replace(".bs.js", "");
-    text = text
-      .replace(/\.bs\.js/g, "")
-      .replace(`exports.${name} = ${name}`, `module.exports = ${name}`);
+    text = text.replace(/\.bs\.js/g, "");
     if (text.includes(`exports.${name}`)) {
-      text = text.concat(`\nexports = ${name}`);
+      text = text.replace(`exports.${name}`, "module.exports");
     }
 
     fs.unlinkSync(path.join(rootPath, name + ".bs.js"));

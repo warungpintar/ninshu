@@ -1,5 +1,5 @@
 const Benchmark = require("benchmark");
-const camelCase = require("../es/string/camelCase").camelCase;
+const camelCase = require("../lib/string/camelCase").camelCase;
 const _camelCase = require("lodash/camelCase");
 const suite = new Benchmark.Suite();
 

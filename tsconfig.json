@@ -19,6 +19,9 @@
     "paths": {
       "@string/*": [
         "src/string/*"
+      ],
+      "@object/*": [
+        "src/object/*"
       ]
     },
     "types": [

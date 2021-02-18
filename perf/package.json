@@ -4,6 +4,7 @@
     "start": "scripts/run.js"
   },
   "devDependencies": {
+    "@ridi/object-case-converter": "^2.0.4",
     "benchmark": "^2.1.4",
     "lodash": "^4.17.20",
     "minimatch": "^3.0.4",

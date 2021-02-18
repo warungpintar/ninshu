@@ -10,7 +10,7 @@
     "build:es": "rimraf ./es && babel --extensions .ts,.tsx ./src --out-dir es",
     "build:commonjs": "rimraf ./lib && cross-env BABEL_ENV=commonjs babel --extensions .ts,.tsx --ignore ./src/**/tests/**/* ./src --out-dir lib",
     "build:umd": "rimraf ./dist && cross-env NODE_ENV=production rollup -c && rollup-plugin-visualizer stats.json",
-    "benchmark": "perf/scripts/run.js",
+    "benchmark": "yarn build:commonjs && perf/scripts/run.js",
     "test": "jest"
   },
   "devDependencies": {

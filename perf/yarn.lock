@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@ridi/object-case-converter@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@ridi/object-case-converter/-/object-case-converter-2.0.4.tgz#33989219c3ded60a51f750d644946d77e56c89bf"
+  integrity sha512-ByWGTL/OLI6YP4W7WLSxZdyQNS74TMWEBxmu6LVbDvbp3+ih930UByMXEfzz0lDTSxHi7LUtP8w9DOCFbraD4g==
+  dependencies:
+    lodash "^4.17.10"
+
 ansi-regex@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.0.tgz#388539f55179bf39339c81af30a654d69f87cb75"
@@ -126,7 +133,7 @@ is-interactive@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-interactive/-/is-interactive-1.0.0.tgz#cea6e6ae5c870a7b0a0004070b7b587e0252912e"
   integrity sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==
 
-lodash@^4.17.20, lodash@^4.17.4:
+lodash@^4.17.10, lodash@^4.17.20, lodash@^4.17.4:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==

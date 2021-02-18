@@ -1,3 +1,6 @@
+/**
+ * @since 1.0.0-alpha
+ */
 import { unicodeWords } from "./unicodeWords";
 
 const hasUnicodeWord = RegExp.prototype.test.bind(
@@ -14,12 +17,13 @@ function asciiWords(string: string) {
 /**
  * Splits `string` into an array of its words.
  *
- * ## Example
- * ```ts
+ * @example
  * import { words } from '@warungpintar/ninshuu'
  *
  * words('camelCase') // output: ['camel', 'Case']
- * ```
+ *
+ * @category string
+ * @since 1.0.0-alpha
  */
 export const words = (input: string, pattern?: RegExp | string) => {
   if (pattern) return (input.match(pattern) as string[]) ?? [];

@@ -15,7 +15,7 @@ import { upperFirst, lowerFirst, removeRightSingleQuotationMark } from "./util";
  *
  * camelCase('camel_case') // output: camelCase
  *
- * @category object
+ * @category string
  * @since 1.0.0-alpha
  */
 export const camelCase = (input: string) => {

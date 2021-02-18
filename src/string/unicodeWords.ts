@@ -1,3 +1,7 @@
+/**
+ * @since 1.0.0-alpha
+ */
+
 /** Used to compose unicode character classes. */
 const rsAstralRange = "\\ud800-\\udfff";
 const rsComboMarksRange = "\\u0300-\\u036f";
@@ -78,6 +82,9 @@ const reUnicodeWords = RegExp(
 
 /**
  * Splits a Unicode `string` into an array of its words.
+ *
+ * @category string
+ * @since 1.0.0-alpha
  */
 export const unicodeWords = (input: string) =>
   input.match(reUnicodeWords) as string[];

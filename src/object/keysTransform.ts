@@ -4,6 +4,16 @@
 import { map, reduce } from "fp-ts/Array";
 import { pipe, flow } from "fp-ts/function";
 
+const mapType = <A, B>(
+  onArr: (a: A[]) => A[],
+  onObj: (b: B) => B,
+  onEither: (c: any) => any
+) => (input: any) => {
+  if (Array.isArray(input)) return onArr(input);
+  if (typeof input === "object") return onObj(input as B);
+  return onEither(input);
+};
+
 /**
  * Recursively transform all keys of object/array with custom processor
  *
@@ -16,29 +26,22 @@ import { pipe, flow } from "fp-ts/function";
  * @since 1.0.0-alpha
  */
 export const keysTransform = (processor: (input: string) => string) => (
-  input: Record<string, any> | any[]
-): Record<string, any> | any[] => {
-  const valueType = typeof input;
+  input: any
+): any => {
+  const keyTransform = flow(keysTransform(processor));
+  const handleArray = map((n) => (typeof n === "object" ? keyTransform(n) : n));
+  const reducer = (prev: Record<string, any>, next: string) => {
+    const currentValue = input[next];
+    prev[processor(next)] =
+      typeof currentValue === "object"
+        ? keyTransform(currentValue)
+        : currentValue;
 
-  if (valueType !== "object") return input;
-
-  if (Array.isArray(input))
-    return map((n) => {
-      if (typeof n === "object")
-        return flow(keysTransform(processor))(n as any[]);
-
-      return n;
-    })(input) as any[];
-
+    return prev;
+  };
+  const handleObject = flow(Object.keys, reduce({}, reducer));
   return pipe(
-    Object.keys(input),
-    reduce({} as Record<string, any>, (prev, next) => {
-      const val = input[next];
-      prev[processor(next)] =
-        typeof val === "object"
-          ? flow(keysTransform(processor))((val as unknown) as any[])
-          : val;
-      return prev;
-    })
+    input,
+    mapType(handleArray, handleObject, (n) => n)
   );
 };

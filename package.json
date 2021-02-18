@@ -1,15 +1,19 @@
 {
   "name": "ninshu",
   "version": "0.0.1",
-  "main": "index.js",
   "repository": "git@github.com:warungpintar/ninshu.git",
   "author": "adeyahya <adeyahyaprasetyo@gmail.com>",
   "license": "MIT",
+  "main": "lib/index.js",
+  "unpkg": "dist/ninshu.development.js",
+  "types": "types/index.d.ts",
+  "module": "es/index.js",
   "scripts": {
-    "build": "yarn build:commonjs && yarn build:es && yarn build:umd",
+    "build": "yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:types",
     "build:es": "rimraf ./es && babel --extensions .ts,.tsx ./src --out-dir es",
     "build:commonjs": "rimraf ./lib && cross-env BABEL_ENV=commonjs babel --extensions .ts,.tsx --ignore ./src/**/tests/**/* ./src --out-dir lib",
     "build:umd": "rimraf ./dist && cross-env NODE_ENV=production rollup -c && rollup-plugin-visualizer stats.json",
+    "build:types": "rimraf ./types && tsc --project ./tsconfig.types.json",
     "benchmark": "yarn build:commonjs && perf/scripts/run.js",
     "test": "jest"
   },
@@ -34,11 +38,13 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-visualizer": "^4.2.0",
     "ts-jest": "^26.5.1",
-    "typescript": "^4.1.5"
+    "typescript": "^4.1.5",
+    "babel-plugin-transform-async-to-promises": "^0.8.15"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.13",
-    "babel-plugin-transform-async-to-promises": "^0.8.15",
+    "@babel/runtime": "^7.12.13"
+  },
+  "peerDependencies": {
     "fp-ts": "^2.9.5"
   }
 }

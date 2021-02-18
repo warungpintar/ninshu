@@ -1,15 +1,10 @@
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import size from "rollup-plugin-size";
-import externalDeps from "rollup-plugin-peer-deps-external";
 import resolve from "rollup-plugin-node-resolve";
 import commonJS from "rollup-plugin-commonjs";
 import visualizer from "rollup-plugin-visualizer";
 import replace from "@rollup/plugin-replace";
-
-const external = [];
-
-const globals = {};
 
 const inputSrcs = [["src/index.ts", "ninshu", "ninshu"]];
 
@@ -27,15 +22,8 @@ export default inputSrcs
           file: `dist/${file}.development.js`,
           format: "umd",
           sourcemap: true,
-          globals,
         },
-        external,
-        plugins: [
-          resolve(resolveConfig),
-          babel(babelConfig),
-          commonJS(),
-          externalDeps(),
-        ],
+        plugins: [resolve(resolveConfig), babel(babelConfig), commonJS()],
       },
       {
         input: input,
@@ -44,9 +32,7 @@ export default inputSrcs
           file: `dist/${file}.production.min.js`,
           format: "umd",
           sourcemap: true,
-          globals,
         },
-        external,
         plugins: [
           replace({
             "process.env.NODE_ENV": `"production"`,
@@ -55,7 +41,6 @@ export default inputSrcs
           resolve(resolveConfig),
           babel(babelConfig),
           commonJS(),
-          externalDeps(),
           terser(),
           size(),
           visualizer({

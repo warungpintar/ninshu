@@ -1,4 +1,4 @@
-import { camelCase } from "@string/camelCase";
+import { camelCase } from "../../src/string/camelCase";
 
 const cases = [
   ["12 feet", "12Feet"],

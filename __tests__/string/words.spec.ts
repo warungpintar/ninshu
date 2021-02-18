@@ -1,4 +1,4 @@
-import { words } from "@string/words";
+import { words } from "../../src/string/words";
 
 describe("words", () => {
   it("should support a `pattern`", function () {

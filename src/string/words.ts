@@ -18,7 +18,7 @@ function asciiWords(string: string) {
  * Splits `string` into an array of its words.
  *
  * @example
- * import { words } from '@warungpintar/ninshuu'
+ * import { words } from '@warungpintar/ninshu'
  *
  * words('camelCase') // output: ['camel', 'Case']
  *

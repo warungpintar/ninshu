@@ -11,7 +11,7 @@ import { upperFirst, lowerFirst, removeRightSingleQuotationMark } from "./util";
  * [camelCase](https://en.wikipedia.org/wiki/Camel_case)
  *
  * @example
- * import { camelCase } from '@warungpintar/ninshuu'
+ * import { camelCase } from '@warungpintar/ninshu'
  *
  * camelCase('camel_case') // output: camelCase
  *

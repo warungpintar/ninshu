@@ -11,7 +11,7 @@ import { removeFirstChar, removeRightSingleQuotationMark } from "./util";
  * [snake_case](https://en.wikipedia.org/wiki/Snake_case)
  *
  * @example
- * import { snakeCase } from '@warungpintar/ninshuu'
+ * import { snakeCase } from '@warungpintar/ninshu'
  *
  * snakeCase('snakeCase') // output: snake_case
  * @category string

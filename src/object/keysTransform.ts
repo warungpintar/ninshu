@@ -10,7 +10,7 @@ import { pipe, flow } from "fp-ts/function";
  * @example
  * import { keysTransform } from '@warungpintar/ninshu'
  *
- * keysTransform(String.prototype.toLocaleLowerCase.apply)({FULLNAME: 'rin'}) // output: {fullname: 'rin'}
+ * keysTransform((s: string) => s.toLowerCase())({FULLNAME: 'rin'}) // output: {fullname: 'rin'}
  *
  * @category object
  * @since 1.0.0-alpha

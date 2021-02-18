@@ -1,5 +1,5 @@
 const Benchmark = require("benchmark");
-const keysCamelCase = require("../lib/object/keysCamelCase").keysCamelCase;
+const { keysCamelCase } = require("../lib");
 const camelize = require("@ridi/object-case-converter").camelize;
 const suite = new Benchmark.Suite();
 

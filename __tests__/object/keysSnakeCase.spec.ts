@@ -1,4 +1,4 @@
-import { keysSnakeCase } from "../../src/object/keysSnakeCase";
+import { keysSnakeCase } from "../../src/Object";
 
 test("keys to camelcase", () => {
   expect(

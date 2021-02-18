@@ -1,6 +1,8 @@
 /**
  * @since 1.0.0-alpha
  */
+import { pipe } from "fp-ts/function";
+import * as E from "expressive-ts/lib/Expression";
 
 /** Used to compose unicode character classes. */
 const rsAstralRange = "\\ud800-\\udfff";
@@ -80,6 +82,28 @@ const reUnicodeWords = RegExp(
   "g"
 );
 
+const hasUnicodeExpression = pipe(
+  E.compile,
+  E.range("a", "z"),
+  E.range("A", "Z"),
+  E.orMap,
+  E.range("A", "Z"),
+  E.exactly(2),
+  E.range("a", "z"),
+  E.orMap,
+  E.range("0", "9"),
+  E.anyOf("a-zA-Z"),
+  E.orMap,
+  E.anyOf("a-zA-Z"),
+  E.range("0", "9"),
+  E.orMap,
+  E.anyOf("^a-zA-Z0-9 ")
+);
+
+export const reHasUnicodeWord = pipe(hasUnicodeExpression, E.toRegex);
+/** Used to match words composed of alphanumeric characters. */
+const reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
+
 /**
  * Splits a Unicode `string` into an array of its words.
  *
@@ -89,4 +113,7 @@ const reUnicodeWords = RegExp(
 export const unicodeWords = (input: string) =>
   input.match(reUnicodeWords) as string[];
 
-export default unicodeWords;
+export const hasUnicodeWord = RegExp.prototype.test.bind(reHasUnicodeWord);
+
+export const asciiWords = (string: string) =>
+  string.match(reAsciiWord) as string[];

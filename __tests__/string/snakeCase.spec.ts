@@ -1,4 +1,4 @@
-import { snakeCase } from "../../src/string/snakeCase";
+import { snakeCase } from "../../src/String";
 
 const cases = [
   ["testString", "test_string"],

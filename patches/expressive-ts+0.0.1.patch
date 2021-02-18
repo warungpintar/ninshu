@@ -1,0 +1,64 @@
+diff --git a/node_modules/expressive-ts/es6/Expression.d.ts b/node_modules/expressive-ts/es6/Expression.d.ts
+index c4ce234..08a9b97 100644
+--- a/node_modules/expressive-ts/es6/Expression.d.ts
++++ b/node_modules/expressive-ts/es6/Expression.d.ts
+@@ -201,6 +201,11 @@ export declare const maybe: (value: string) => Endomorphism<ExpressionBuilder>
+  * @since 0.0.1
+  */
+ export declare const or: (value: string) => Endomorphism<ExpressionBuilder>
++/**
++ * @category combinators
++ * @since 0.1.1
++ */
++export declare const orMap: Endomorphism<ExpressionBuilder>
+ /**
+  * @category combinators
+  * @since 0.0.1
+diff --git a/node_modules/expressive-ts/es6/Expression.js b/node_modules/expressive-ts/es6/Expression.js
+index c9a5f9a..3a86236 100644
+--- a/node_modules/expressive-ts/es6/Expression.js
++++ b/node_modules/expressive-ts/es6/Expression.js
+@@ -192,6 +192,11 @@ export var maybe = function (value) { return add("(?:" + sanitize(value) + ")?")
+ export var or = function (value) {
+     return flow(prefix("(?:"), suffix(")"), add(")|(?:"), string(value));
+ };
++/**
++ * @category combinators
++ * @since 0.1.1
++ */
++export var orMap = add("|");
+ /**
+  * @category combinators
+  * @since 0.0.1
+diff --git a/node_modules/expressive-ts/lib/Expression.d.ts b/node_modules/expressive-ts/lib/Expression.d.ts
+index 68b9d76..d714894 100644
+--- a/node_modules/expressive-ts/lib/Expression.d.ts
++++ b/node_modules/expressive-ts/lib/Expression.d.ts
+@@ -205,6 +205,11 @@ export declare const or: (value: string) => Endomorphism<ExpressionBuilder>
+  * @category combinators
+  * @since 0.0.1
+  */
++export declare const orMap: Endomorphism<ExpressionBuilder>
++/**
++ * @category combinators
++ * @since 0.1.1
++ */
+ export declare const anything: Endomorphism<ExpressionBuilder>
+ /**
+  * @category combinators
+diff --git a/node_modules/expressive-ts/lib/Expression.js b/node_modules/expressive-ts/lib/Expression.js
+index 7220510..b4475a5 100644
+--- a/node_modules/expressive-ts/lib/Expression.js
++++ b/node_modules/expressive-ts/lib/Expression.js
+@@ -195,6 +195,11 @@ exports.maybe = function (value) { return add("(?:" + sanitize(value) + ")?"); }
+ exports.or = function (value) {
+     return function_1.flow(prefix("(?:"), suffix(")"), add(")|(?:"), exports.string(value));
+ };
++/**
++ * @category combinators
++ * @since 0.1.1
++ */
++exports.orMap = add("|")
+ /**
+  * @category combinators
+  * @since 0.0.1

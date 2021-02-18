@@ -2,10 +2,30 @@
  * @since 1.0.0-alpha
  */
 import { unicodeWords } from "./unicodeWords";
+import { pipe } from "fp-ts/function";
+import * as E from "expressive-ts/lib/Expression";
 
-const hasUnicodeWord = RegExp.prototype.test.bind(
-  /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/
+const hasUnicodeExpression = pipe(
+  E.compile,
+  E.range("a", "z"),
+  E.range("A", "Z"),
+  E.orMap,
+  E.range("A", "Z"),
+  E.exactly(2),
+  E.range("a", "z"),
+  E.orMap,
+  E.range("0", "9"),
+  E.anyOf("a-zA-Z"),
+  E.orMap,
+  E.anyOf("a-zA-Z"),
+  E.range("0", "9"),
+  E.orMap,
+  E.anyOf("^a-zA-Z0-9 ")
 );
+
+const hasUnicodeWordRe = pipe(hasUnicodeExpression, E.toRegex);
+
+const hasUnicodeWord = RegExp.prototype.test.bind(hasUnicodeWordRe);
 
 /** Used to match words composed of alphanumeric characters. */
 const reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;

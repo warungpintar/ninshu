@@ -1,4 +1,4 @@
 {
   "srcDir": "src",
-  "exclude": ["src/index.ts", "src/string/util.ts"]
+  "exclude": ["src/index.ts", "src/internal/**/*.ts"]
 }

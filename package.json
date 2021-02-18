@@ -1,6 +1,6 @@
 {
   "name": "@warungpintar/ninshu",
-  "version": "1.1.0-alpha",
+  "version": "1.1.1-alpha",
   "repository": "git@github.com:warungpintar/ninshu.git",
   "author": "adeyahya <adeyahyaprasetyo@gmail.com>",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "unpkg": "dist/ninshu.development.js",
   "types": "types/index.d.ts",
   "module": "es/index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:types",
     "build:es": "rimraf ./es && babel --extensions .ts,.tsx ./src --out-dir es",
@@ -43,9 +44,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.13",
-    "fp-ts": "^2.9.5"
-  },
-  "peerDependencies": {
     "fp-ts": "^2.9.5"
   }
 }

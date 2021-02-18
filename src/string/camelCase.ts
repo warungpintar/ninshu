@@ -22,10 +22,13 @@ export const camelCase = (input: string) => {
   if (typeof input !== "string") return "";
   if (input.length === 0) return "";
 
+  const reducer = (prev: string, next: string) =>
+    prev + upperFirst("" + next.toLowerCase());
+
   return flow(
     removeRightSingleQuotationMark,
     words,
-    reduce("", (prev, next) => prev + upperFirst("" + next.toLowerCase())),
+    reduce("", reducer),
     lowerFirst
   )(input);
 };

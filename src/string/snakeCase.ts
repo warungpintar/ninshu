@@ -21,10 +21,13 @@ export const snakeCase = (input: string) => {
   if (typeof input !== "string") return "";
   if (input.length === 0) return "";
 
+  const reducer = (prev: string, next: string) =>
+    prev + "_" + next.toLowerCase();
+
   return flow(
     removeRightSingleQuotationMark,
     words,
-    reduce("", (prev, next) => prev + "_" + next.toLowerCase()),
+    reduce("", reducer),
     removeFirstChar
   )(input);
 };

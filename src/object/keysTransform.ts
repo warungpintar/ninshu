@@ -1,15 +1,19 @@
+/**
+ * @since 1.0.0-alpha
+ */
 import { map, reduce } from "fp-ts/Array";
 import { pipe, flow } from "fp-ts/function";
 
 /**
  * Recursively transform all keys of object/array with custom processor
  *
- * ## Example
- * ```ts
+ * @example
  * import { keysTransform } from '@warungpintar/ninshu'
  *
  * keysTransform(String.prototype.toLocaleLowerCase.apply)({FULLNAME: 'rin'}) // output: {fullname: 'rin'}
- * ```
+ *
+ * @category object
+ * @since 1.0.0-alpha
  */
 export const keysTransform = (processor: (input: string) => string) => (
   input: Record<string, any> | any[]

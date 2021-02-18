@@ -86,17 +86,17 @@ const hasUnicodeExpression = pipe(
   E.compile,
   E.range("a", "z"),
   E.range("A", "Z"),
-  E.orMap,
+  E.orExpression,
   E.range("A", "Z"),
   E.exactly(2),
   E.range("a", "z"),
-  E.orMap,
+  E.orExpression,
   E.range("0", "9"),
   E.anyOf("a-zA-Z"),
-  E.orMap,
+  E.orExpression,
   E.anyOf("a-zA-Z"),
   E.range("0", "9"),
-  E.orMap,
+  E.orExpression,
   E.anyOf("^a-zA-Z0-9 ")
 );
 

@@ -5,3 +5,5 @@ export * from "./string/snakeCase";
 
 // object
 export * from "./object/keysCamelCase";
+export * from "./object/keysSnakeCase";
+export * from "./object/keysTransform";

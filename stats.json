@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "tree": {
+    "name": "ninshu.production.min.js",
+    "children": [
+      {
+        "name": "src",
+        "children": [
+          {
+            "name": "string",
+            "children": [
+              {
+                "name": "unicodeWords.ts",
+                "uid": "1475-0"
+              },
+              {
+                "name": "words.ts",
+                "uid": "1475-1"
+              },
+              {
+                "name": "util.ts",
+                "uid": "1475-5"
+              },
+              {
+                "name": "camelCase.ts",
+                "uid": "1475-6"
+              },
+              {
+                "name": "snakeCase.ts",
+                "uid": "1475-7"
+              }
+            ]
+          },
+          {
+            "name": "index.ts",
+            "uid": "1475-8"
+          }
+        ]
+      },
+      {
+        "name": "node_modules",
+        "children": [
+          {
+            "name": "fp-ts",
+            "children": [
+              {
+                "name": "es6",
+                "children": [
+                  {
+                    "name": "function.js",
+                    "uid": "1475-2"
+                  },
+                  {
+                    "name": "ReadonlyArray.js",
+                    "uid": "1475-3"
+                  },
+                  {
+                    "name": "Array.js",
+                    "uid": "1475-4"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "renderedLength": 3357,
+    "isRoot": true
+  },
+  "nodes": {
+    "1475-0": {
+      "renderedLength": 3244,
+      "id": "src/string/unicodeWords.ts"
+    },
+    "1475-1": {
+      "renderedLength": 921,
+      "id": "src/string/words.ts"
+    },
+    "1475-2": {
+      "renderedLength": 1023,
+      "id": "node_modules/fp-ts/es6/function.js"
+    },
+    "1475-3": {
+      "renderedLength": 479,
+      "id": "node_modules/fp-ts/es6/ReadonlyArray.js"
+    },
+    "1475-4": {
+      "renderedLength": 69,
+      "id": "node_modules/fp-ts/es6/Array.js"
+    },
+    "1475-5": {
+      "renderedLength": 426,
+      "id": "src/string/util.ts"
+    },
+    "1475-6": {
+      "renderedLength": 524,
+      "id": "src/string/camelCase.ts"
+    },
+    "1475-7": {
+      "renderedLength": 519,
+      "id": "src/string/snakeCase.ts"
+    },
+    "1475-8": {
+      "renderedLength": 0,
+      "isEntry": true,
+      "id": "src/index.ts"
+    },
+    "1475-9": {
+      "renderedLength": 0,
+      "id": "node_modules/fp-ts/es6/Option.js"
+    },
+    "1475-10": {
+      "renderedLength": 0,
+      "id": "node_modules/fp-ts/es6/Ord.js"
+    },
+    "1475-11": {
+      "renderedLength": 0,
+      "id": "node_modules/fp-ts/es6/Ordering.js"
+    }
+  },
+  "links": [
+    {
+      "source": "1475-8",
+      "target": "1475-1"
+    },
+    {
+      "source": "1475-8",
+      "target": "1475-6"
+    },
+    {
+      "source": "1475-8",
+      "target": "1475-7"
+    },
+    {
+      "source": "1475-1",
+      "target": "1475-0"
+    },
+    {
+      "source": "1475-6",
+      "target": "1475-2"
+    },
+    {
+      "source": "1475-6",
+      "target": "1475-4"
+    },
+    {
+      "source": "1475-6",
+      "target": "1475-1"
+    },
+    {
+      "source": "1475-6",
+      "target": "1475-5"
+    },
+    {
+      "source": "1475-7",
+      "target": "1475-2"
+    },
+    {
+      "source": "1475-7",
+      "target": "1475-4"
+    },
+    {
+      "source": "1475-7",
+      "target": "1475-1"
+    },
+    {
+      "source": "1475-7",
+      "target": "1475-5"
+    },
+    {
+      "source": "1475-4",
+      "target": "1475-3"
+    },
+    {
+      "source": "1475-5",
+      "target": "1475-9"
+    },
+    {
+      "source": "1475-3",
+      "target": "1475-2"
+    },
+    {
+      "source": "1475-3",
+      "target": "1475-9"
+    },
+    {
+      "source": "1475-3",
+      "target": "1475-10"
+    },
+    {
+      "source": "1475-9",
+      "target": "1475-2"
+    },
+    {
+      "source": "1475-10",
+      "target": "1475-11"
+    },
+    {
+      "source": "1475-10",
+      "target": "1475-2"
+    }
+  ],
+  "env": {
+    "rollup": "2.39.0",
+    "rollup-plugin-visualizer": "4.2.0"
+  },
+  "options": {
+    "gzip": false,
+    "brotli": false
+  }
+}

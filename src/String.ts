@@ -2,11 +2,9 @@
  * @since 1.0.0-alpha
  */
 import { flow } from "fp-ts/function";
-import { reduce } from "fp-ts/Array";
+import { reduceWithIndex } from "fp-ts/Array";
 import {
   upperFirst,
-  lowerFirst,
-  removeFirstChar,
   removeRightSingleQuotationMark,
 } from "./internal/stringUtils";
 import {
@@ -50,14 +48,14 @@ export const camelCase = (input: string) => {
   if (typeof input !== "string") return "";
   if (input.length === 0) return "";
 
-  const reducer = (prev: string, next: string) =>
-    prev + upperFirst("" + next.toLowerCase());
+  const reducer = (idx: number, prev: string, next: string) =>
+    prev +
+    (idx === 0 ? next.toLowerCase() : upperFirst("" + next.toLowerCase()));
 
   return flow(
     removeRightSingleQuotationMark,
     words,
-    reduce("", reducer),
-    lowerFirst
+    reduceWithIndex("", reducer)
   )(input);
 };
 
@@ -76,13 +74,12 @@ export const snakeCase = (input: string) => {
   if (typeof input !== "string") return "";
   if (input.length === 0) return "";
 
-  const reducer = (prev: string, next: string) =>
-    prev + "_" + next.toLowerCase();
+  const reducer = (idx: number, prev: string, next: string) =>
+    prev + (idx === 0 ? next.toLowerCase() : "_" + next.toLowerCase());
 
   return flow(
     removeRightSingleQuotationMark,
     words,
-    reduce("", reducer),
-    removeFirstChar
+    reduceWithIndex("", reducer)
   )(input);
 };

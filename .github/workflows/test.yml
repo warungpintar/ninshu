@@ -1,8 +1,6 @@
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
   pull_request:
-    branches:
-      - '*'
   push:
     branches:
       - main
@@ -32,7 +30,7 @@ jobs:
           yarn install
       - run: |
           yarn benchmark
-  benchmark:
+  analyze:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

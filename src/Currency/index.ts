@@ -2,24 +2,23 @@
  * @since 0.0.1
  */
 import * as E from "fp-ts/Either";
-import { Lazy } from "fp-ts/function";
-import { lazy } from "../internal/function";
+import { Lazy, flow } from "fp-ts/function";
+import { lazy, isNumber, isNotNil } from "../internal";
 import { INumberFormat } from "../Number";
 
 interface ICurrencyFormat extends INumberFormat {
   style: Lazy<"currency">;
 }
 
-const currencyFormatter = <A>() => (value: A) => {
-  const errorMessage = new TypeError("invalid format");
-  if (value === null || value === undefined) return E.left(errorMessage);
-  const _value = Number(value);
-  if (isNaN(_value)) return E.left(errorMessage);
-
-  return E.right(
-    "Rp " + _value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+const currencyFormatter = () =>
+  flow(
+    isNotNil,
+    E.chain(isNumber),
+    E.chain((a) =>
+      E.right("Rp " + a.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."))
+    ),
+    E.mapLeft(() => new TypeError("invalid format"))
   );
-};
 
 /**
  * currency formatter

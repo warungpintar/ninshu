@@ -1,7 +1,3 @@
-import { fromPredicate } from "fp-ts/Option";
-
-export const isString = fromPredicate((s: any) => typeof s === "string");
-
 export const upperFirst = (input: string) =>
   input.charAt(0).toUpperCase() + input.slice(1);
 

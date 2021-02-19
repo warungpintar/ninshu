@@ -12,10 +12,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:types",
-    "build:es": "rimraf ./es && esbuild src/*.ts src/**/*.ts --format=esm --sourcemap=external --outdir=es",
-    "build:commonjs": "rimraf ./lib && esbuild src/*.ts src/**/*.ts --format=cjs --sourcemap=external --outdir=lib",
-    "build:umd:minified": "esbuild src/index.ts --format=iife --sourcemap=external --bundle --minify --outfile=dist/ninshu.production.js",
-    "build:umd": "rimraf ./dist && esbuild src/index.ts --format=iife --sourcemap=external --bundle --outfile=dist/ninshu.development.js && yarn build:umd:minified",
+    "build:es": "rimraf ./es && babel --extensions .ts,.tsx ./src --out-dir es",
+    "build:commonjs": "rimraf ./lib && cross-env BABEL_ENV=commonjs babel --extensions .ts,.tsx --ignore ./src/**/tests/**/* ./src --out-dir lib",
+    "build:umd": "rimraf ./dist && cross-env NODE_ENV=production rollup -c && rollup-plugin-visualizer stats.json",
     "build:types": "rimraf ./types && tsc --project ./tsconfig.types.json && replace 'import type' 'import' ./types -r --silent && replace 'export type' 'export' ./types -r --silent",
     "benchmark": "yarn build:commonjs && perf/scripts/run.js",
     "docs": "docs-ts",

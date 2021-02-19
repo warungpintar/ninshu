@@ -37,4 +37,6 @@ jobs:
       - run: |
           yarn install
       - run: |
+          yarn build:es
+      - run: |
           yarn analyze

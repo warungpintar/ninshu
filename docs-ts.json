@@ -1,4 +1,10 @@
 {
   "srcDir": "src",
-  "exclude": ["src/index.ts", "src/internal/**/*.ts", "src/Number/**/*.ts"]
+  "exclude": [
+    "src/index.ts",
+    "src/locale/index.ts",
+    "src/locale/**/*.ts",
+    "src/internal/**/*.ts",
+    "src/Number/**/*.ts"
+  ]
 }

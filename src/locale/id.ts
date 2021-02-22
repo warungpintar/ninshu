@@ -4,8 +4,8 @@ export const id = {
     decimal: ",",
   },
   abbreviations: {
-    thousand: "r",
-    million: "j",
+    thousand: "rb",
+    million: "jt",
     billion: "m",
     trillion: "t",
   },

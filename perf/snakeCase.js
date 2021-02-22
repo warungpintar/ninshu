@@ -1,5 +1,5 @@
 const Benchmark = require("benchmark");
-const { snakeCase } = require("../lib");
+const { snakeCase } = require("..");
 const _snakeCase = require("lodash/snakeCase");
 const suite = new Benchmark.Suite();
 

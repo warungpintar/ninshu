@@ -1,5 +1,5 @@
 const Benchmark = require("benchmark");
-const { words } = require("../lib");
+const { words } = require("..");
 const _words = require("lodash/words");
 const suite = new Benchmark.Suite();
 

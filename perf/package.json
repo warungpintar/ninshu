@@ -3,6 +3,7 @@
   "scripts": {
     "start": "scripts/run.js"
   },
+  "license": "MIT",
   "devDependencies": {
     "@ridi/object-case-converter": "^2.0.4",
     "benchmark": "^2.1.4",

@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmitOnError": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
     "lib": [
-      "es2017"
+      "ESNext",
+      "dom"
     ],
+    "target": "es5",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
     "strict": true,
-    "esModuleInterop": false,
-    "outDir": "dist",
-    "allowJs": true,
-    "declaration": true,
-    "jsx": "preserve",
-    "rootDir": "./"
+    "types": [
+      "jest"
+    ]
   },
   "include": [
-    "./src/*.tsx"
+    "./src",
+    "./__tests__"
   ]
 }

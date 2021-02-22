@@ -27,6 +27,7 @@ import {
  * @since 1.0.0-alpha
  */
 export const words = (input: string, pattern?: RegExp | string) => {
+  if (!input || typeof input !== "string") return [];
   if (pattern) return (input.match(pattern) as string[]) ?? [];
 
   if (hasUnicodeWord(input)) return unicodeWords(input) ?? [];
@@ -47,8 +48,7 @@ export const words = (input: string, pattern?: RegExp | string) => {
  * @since 1.0.0-alpha
  */
 export const camelCase = (input: string) => {
-  if (typeof input !== "string") return "";
-  if (input.length === 0) return "";
+  if (!input || typeof input !== "string") return "";
 
   const reducer = (prev: string, next: string) =>
     prev + upperFirst("" + next.toLowerCase());
@@ -73,8 +73,7 @@ export const camelCase = (input: string) => {
  * @since 1.0.0-alpha
  */
 export const snakeCase = (input: string) => {
-  if (typeof input !== "string") return "";
-  if (input.length === 0) return "";
+  if (!input || typeof input !== "string") return "";
 
   const reducer = (prev: string, next: string) =>
     prev + "_" + next.toLowerCase();

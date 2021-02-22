@@ -28,15 +28,15 @@ Recursively transform all keys of object/array to camelCase
 **Signature**
 
 ```ts
-export declare const keysCamelCase: (input: any) => any
+export declare const keysCamelCase: (input: any) => any;
 ```
 
 **Example**
 
 ```ts
-import { keysCamelCase } from '@warungpintar/ninshu'
+import { keysCamelCase } from "@warungpintar/ninshu";
 
-keysCamelCase({ FULL_NAME: 'rin' }) // output: {fullName: 'rin'}
+keysCamelCase({ FULL_NAME: "rin" }); // output: {fullName: 'rin'}
 ```
 
 Added in v1.0.0-alpha
@@ -48,15 +48,15 @@ Recursively transform all keys of object/array to snake_case
 **Signature**
 
 ```ts
-export declare const keysSnakeCase: (input: any) => any
+export declare const keysSnakeCase: (input: any) => any;
 ```
 
 **Example**
 
 ```ts
-import { keysSnakeCase } from '@warungpintar/ninshu'
+import { keysSnakeCase } from "@warungpintar/ninshu";
 
-keysSnakeCase({ fullName: 'rin' })
+keysSnakeCase({ fullName: "rin" });
 // => output: {full_name: 'rin'}
 ```
 
@@ -69,15 +69,17 @@ Recursively transform all keys of object/array with custom processor
 **Signature**
 
 ```ts
-export declare const keysTransform: (processor: (input: string) => string) => (input: any) => any
+export declare const keysTransform: (
+  processor: (input: string) => string
+) => (input: any) => any;
 ```
 
 **Example**
 
 ```ts
-import { keysTransform } from '@warungpintar/ninshu'
+import { keysTransform } from "@warungpintar/ninshu";
 
-keysTransform((s: string) => s.toLowerCase())({ FULLNAME: 'rin' }) // output: {fullname: 'rin'}
+keysTransform((s: string) => s.toLowerCase())({ FULLNAME: "rin" }); // output: {fullname: 'rin'}
 ```
 
 Added in v1.0.0-alpha

@@ -3,7 +3,8 @@
  */
 import * as E from "fp-ts/Either";
 import { Lazy, flow } from "fp-ts/function";
-import { lazy, isNumber, isNotNil, isString } from "../internal";
+import { lazy } from "../internal";
+import { isNumber, isNotNil, isString } from "../is";
 import { INumberFormat } from "../Number";
 import { id, ILocale } from "../locale";
 

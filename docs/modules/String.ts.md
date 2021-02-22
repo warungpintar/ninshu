@@ -29,15 +29,15 @@ convert `string` to
 **Signature**
 
 ```ts
-export declare const camelCase: (input: string) => string
+export declare const camelCase: (input: string) => string;
 ```
 
 **Example**
 
 ```ts
-import { camelCase } from '@warungpintar/ninshu'
+import { camelCase } from "@warungpintar/ninshu";
 
-camelCase('camel_case') // output: camelCase
+camelCase("camel_case"); // output: camelCase
 ```
 
 Added in v1.0.0-alpha
@@ -50,15 +50,15 @@ convert `string` to
 **Signature**
 
 ```ts
-export declare const snakeCase: (input: string) => string
+export declare const snakeCase: (input: string) => string;
 ```
 
 **Example**
 
 ```ts
-import { snakeCase } from '@warungpintar/ninshu'
+import { snakeCase } from "@warungpintar/ninshu";
 
-snakeCase('snakeCase') // output: snake_case
+snakeCase("snakeCase"); // output: snake_case
 ```
 
 Added in v1.0.0-alpha
@@ -70,15 +70,18 @@ Splits `string` into an array of its words.
 **Signature**
 
 ```ts
-export declare const words: (input: string, pattern?: RegExp | string) => string[]
+export declare const words: (
+  input: string,
+  pattern?: RegExp | string
+) => string[];
 ```
 
 **Example**
 
 ```ts
-import { words } from '@warungpintar/ninshu'
+import { words } from "@warungpintar/ninshu";
 
-words('camelCase') // output: ['camel', 'Case']
+words("camelCase"); // output: ['camel', 'Case']
 ```
 
 Added in v1.0.0-alpha

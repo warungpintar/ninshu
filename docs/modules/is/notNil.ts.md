@@ -1,5 +1,5 @@
 ---
-title: is/notNil.ts
+title: Is/notNil.ts
 nav_order: 6
 parent: Modules
 ---
@@ -26,7 +26,7 @@ check if it's not nil
 **Signature**
 
 ```ts
-export declare const isNotNil: (a: any) => Right<any> | Left<any>
+export declare const isNotNil: (a: any) => boolean
 ```
 
 Added in v0.0.1

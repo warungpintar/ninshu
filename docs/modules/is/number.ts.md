@@ -1,5 +1,5 @@
 ---
-title: is/number.ts
+title: Is/number.ts
 nav_order: 7
 parent: Modules
 ---
@@ -26,7 +26,7 @@ check if it's number
 **Signature**
 
 ```ts
-export declare const isNumber: (a: any) => Left<any> | Right<number>
+export declare const isNumber: (a: any) => boolean
 ```
 
 Added in v0.0.1

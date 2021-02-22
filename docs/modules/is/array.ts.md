@@ -1,5 +1,5 @@
 ---
-title: is/array.ts
+title: Is/array.ts
 nav_order: 3
 parent: Modules
 ---
@@ -26,7 +26,7 @@ check if it's array
 **Signature**
 
 ```ts
-export declare const isArray: (a: any) => Left<any> | Right<any[]>
+export declare const isArray: (a: any) => boolean
 ```
 
 Added in v0.0.1

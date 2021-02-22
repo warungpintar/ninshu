@@ -1,5 +1,5 @@
 ---
-title: is/matchRe.ts
+title: Is/matchRe.ts
 nav_order: 5
 parent: Modules
 ---
@@ -26,7 +26,7 @@ check if it's match regex
 **Signature**
 
 ```ts
-export declare const isMatchRe: (re: RegExp) => (a: any) => Right<any> | Left<any>
+export declare const isMatchRe: (re: RegExp) => (a: any) => boolean
 ```
 
 Added in v0.0.1

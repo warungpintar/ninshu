@@ -1,5 +1,5 @@
 ---
-title: is/alphanumeric.ts
+title: Is/alphanumeric.ts
 nav_order: 2
 parent: Modules
 ---
@@ -26,7 +26,7 @@ check if it's alphanumeric
 **Signature**
 
 ```ts
-export declare const isAlphanumeric: (a: any) => Right<any> | Left<any>
+export declare const isAlphanumeric: (a: any) => boolean
 ```
 
 Added in v0.0.1

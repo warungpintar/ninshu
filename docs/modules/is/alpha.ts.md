@@ -1,5 +1,5 @@
 ---
-title: is/alpha.ts
+title: Is/alpha.ts
 nav_order: 1
 parent: Modules
 ---
@@ -26,7 +26,7 @@ check if it's alpha
 **Signature**
 
 ```ts
-export declare const isAlpha: (a: any) => Right<any> | Left<any>
+export declare const isAlpha: (a: any) => boolean
 ```
 
 Added in v0.0.1

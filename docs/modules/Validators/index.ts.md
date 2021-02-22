@@ -1,6 +1,6 @@
 ---
-title: Is/index.ts
-nav_order: 4
+title: Validators/index.ts
+nav_order: 12
 parent: Modules
 ---
 

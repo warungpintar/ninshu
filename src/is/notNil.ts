@@ -1,7 +1,6 @@
 /**
  * @since 0.0.1
  */
-import { right, left } from "fp-ts/Either";
 
 /**
  * check if it's not nil
@@ -9,5 +8,4 @@ import { right, left } from "fp-ts/Either";
  * @since 0.0.1
  * @category Is
  */
-export const isNotNil = (a: any) =>
-  a !== null || a !== undefined ? right(a) : left(a);
+export const isNotNil = (a: any) => a !== null || a !== undefined;

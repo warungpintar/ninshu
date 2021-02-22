@@ -4,7 +4,7 @@
 import * as E from "fp-ts/Either";
 import { Lazy, flow } from "fp-ts/function";
 import { lazy } from "../internal";
-import { isNumber, isNotNil, isString } from "../is";
+import { number, notNil, string } from "../Validators";
 import { INumberFormat } from "../Number";
 import { id, ILocale } from "../locale";
 
@@ -12,34 +12,22 @@ interface ICurrencyFormat extends INumberFormat {
   style: Lazy<"currency">;
 }
 
-const currencyFormatter = (locale: ILocale, precision = 0) => {
-  const { currency, delimiters } = locale;
-  const { symbol } = currency;
-  const { thousands, decimal } = delimiters;
-
-  const toStringFormat = flow(
-    (value: number) =>
-      `${symbol} ` +
-      value
-        .toFixed(precision)
-        .replace(/\./g, decimal)
-        .replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1${thousands}`)
+const currencyFormatter = () =>
+  flow(
+    notNil,
+    E.chain(number),
+    E.chain((a) =>
+      E.right("Rp " + a.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."))
+    ),
+    E.mapLeft((e) => new TypeError(e))
   );
-
-  return flow(
-    isNotNil,
-    E.chain(isNumber),
-    E.chain((value) => E.right(toStringFormat(value))),
-    E.mapLeft(() => new TypeError("invalid format"))
-  );
-};
 
 const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
   const { currency, delimiters } = locale;
   const { symbol } = currency;
   const { thousands, decimal } = delimiters;
 
-  if (E.isRight(isNumber(input)))
+  if (E.isRight(number(input)))
     return E.right(Number((input as number).toFixed(precision)));
 
   const fromStringFormat = flow(
@@ -54,8 +42,8 @@ const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
   );
 
   return flow(
-    isNotNil,
-    E.chain(isString),
+    notNil,
+    E.chain(string),
     E.map(fromStringFormat),
     E.mapLeft(() => new TypeError("invalid format"))
   )(input);
@@ -83,7 +71,7 @@ const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
 export const currency = (precision = 0): ICurrencyFormat => {
   return {
     style: lazy("currency"),
-    format: currencyFormatter(id, precision),
+    format: currencyFormatter(),
     parse: currencyParser(id, precision),
   };
 };

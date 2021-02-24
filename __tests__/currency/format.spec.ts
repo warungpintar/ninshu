@@ -3,8 +3,8 @@ import { currency } from "../../src/Currency";
 
 const cases = [
   [0, "Rp 0"],
-  [undefined, new TypeError("invalid number")],
-  ["haha", new TypeError("invalid number")],
+  [undefined, "currency can't be nil!"],
+  ["haha", "value should be a number!"],
   [5000, "Rp 5.000"],
   [100000, "Rp 100.000"],
 ];

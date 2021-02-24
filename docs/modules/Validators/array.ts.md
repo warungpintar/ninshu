@@ -1,6 +1,6 @@
 ---
 title: Validators/array.ts
-nav_order: 11
+nav_order: 12
 parent: Modules
 ---
 
@@ -13,20 +13,20 @@ Added in v0.0.1
 <h2 class="text-delta">Table of contents</h2>
 
 - [Validators](#validators)
-  - [array](#array)
+  - [validateArray](#validatearray)
 
 ---
 
 # Validators
 
-## array
+## validateArray
 
-validate array
+validate array type
 
 **Signature**
 
 ```ts
-export declare const array: (value: unknown) => E.Right<unknown[]> | E.Left<string>
+export declare const validateArray: (errorMessage: string) => (value: unknown) => E.Right<unknown[]> | E.Left<string>
 ```
 
 Added in v0.0.1

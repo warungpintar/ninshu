@@ -1,6 +1,6 @@
 ---
-title: Is/array.ts
-nav_order: 3
+title: is/array.ts
+nav_order: 4
 parent: Modules
 ---
 

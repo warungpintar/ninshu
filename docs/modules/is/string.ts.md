@@ -1,6 +1,6 @@
 ---
-title: Is/string.ts
-nav_order: 8
+title: is/string.ts
+nav_order: 9
 parent: Modules
 ---
 

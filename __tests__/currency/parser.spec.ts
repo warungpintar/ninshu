@@ -1,11 +1,9 @@
 import { fold } from "fp-ts/Either";
 import { currency } from "../../src/Currency";
 
-const typeError = new TypeError("invalid format");
-
 const cases = [
   ["Rp 0", 0],
-  [NaN, typeError],
+  [NaN, "value should be a string!"],
   ["Rp 50.000", 50000],
   [50000.67, 50001],
   ["Rp 60.000,55", 60001],

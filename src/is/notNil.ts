@@ -8,4 +8,4 @@
  * @since 0.0.1
  * @category Is
  */
-export const isNotNil = (a: any) => a !== null || a !== undefined;
+export const isNotNil = (a: any) => a !== null && a !== undefined;

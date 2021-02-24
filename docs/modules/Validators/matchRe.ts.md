@@ -1,6 +1,6 @@
 ---
 title: Validators/matchRe.ts
-nav_order: 13
+nav_order: 14
 parent: Modules
 ---
 
@@ -13,20 +13,23 @@ Added in v0.0.1
 <h2 class="text-delta">Table of contents</h2>
 
 - [Validators](#validators)
-  - [matchRe](#matchre)
+  - [validateMatchRe](#validatematchre)
 
 ---
 
 # Validators
 
-## matchRe
+## validateMatchRe
 
-validate regex
+validate string with regex
 
 **Signature**
 
 ```ts
-export declare const matchRe: (re: RegExp) => (value: unknown) => E.Left<string> | E.Right<unknown>
+export declare const validateMatchRe: (
+  re: RegExp,
+  errorMessage: string
+) => (value: unknown) => E.Left<string> | E.Right<unknown>
 ```
 
 Added in v0.0.1

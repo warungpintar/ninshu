@@ -1,6 +1,6 @@
 ---
-title: Is/alphanumeric.ts
-nav_order: 2
+title: is/alphanumeric.ts
+nav_order: 3
 parent: Modules
 ---
 

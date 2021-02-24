@@ -1,6 +1,6 @@
 ---
 title: Validators/number.ts
-nav_order: 15
+nav_order: 16
 parent: Modules
 ---
 
@@ -13,20 +13,20 @@ Added in v0.0.1
 <h2 class="text-delta">Table of contents</h2>
 
 - [Validators](#validators)
-  - [number](#number)
+  - [validateNumber](#validatenumber)
 
 ---
 
 # Validators
 
-## number
+## validateNumber
 
-validate number
+validate number type
 
 **Signature**
 
 ```ts
-export declare const number: (value: unknown) => E.Left<string> | E.Right<number>
+export declare const validateNumber: (errorMessage: string) => (value: unknown) => E.Left<string> | E.Right<number>
 ```
 
 Added in v0.0.1

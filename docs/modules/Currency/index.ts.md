@@ -37,16 +37,13 @@ import { fold } from 'fp-ts/Either'
 import { flow } from 'fp-ts/function'
 
 const formatter = currency()
-const moneyPrint = flow(
-  formatter.format,
-  fold((e) => e, console.log)
-)
+const moneyPrint = flow(formatter.format, fold(console.log, console.log))
 
 moneyPrint(5000)
 //> Rp 5000
 
 moneyPrint('hello world')
-//> [TypeError: invalid value]
+//> value should be a number
 ```
 
 Added in v0.0.1

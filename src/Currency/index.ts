@@ -4,7 +4,8 @@
 import * as E from "fp-ts/Either";
 import { Lazy, flow } from "fp-ts/function";
 import { lazy } from "../internal";
-import { number, notNil, string } from "../Validators";
+import { validateNumber, validateNotNil, validateString } from "../Validators";
+import { isNumber } from "../is";
 import { INumberFormat } from "../Number";
 import { id, ILocale } from "../locale";
 
@@ -14,12 +15,12 @@ interface ICurrencyFormat extends INumberFormat {
 
 const currencyFormatter = () =>
   flow(
-    notNil,
-    E.chain(number),
+    validateNotNil("currency can't be nil!"),
+    E.chain(validateNumber("value should be a number!")),
     E.chain((a) =>
       E.right("Rp " + a.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."))
     ),
-    E.mapLeft((e) => new TypeError(e))
+    E.mapLeft((message) => message)
   );
 
 const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
@@ -27,7 +28,7 @@ const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
   const { symbol } = currency;
   const { thousands, decimal } = delimiters;
 
-  if (E.isRight(number(input)))
+  if (isNumber(input))
     return E.right(Number((input as number).toFixed(precision)));
 
   const fromStringFormat = flow(
@@ -42,10 +43,10 @@ const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
   );
 
   return flow(
-    notNil,
-    E.chain(string),
+    validateNotNil("currency can't be nil!"),
+    E.chain(validateString("value should be a string!")),
     E.map(fromStringFormat),
-    E.mapLeft(() => new TypeError("invalid format"))
+    E.mapLeft((message) => message)
   )(input);
 };
 
@@ -57,13 +58,13 @@ const currencyParser = (locale: ILocale, precision = 0) => (input: unknown) => {
  * import {flow} from 'fp-ts/function';
  *
  * const formatter = currency();
- * const moneyPrint = flow(formatter.format, fold((e) =>  e, console.log))
+ * const moneyPrint = flow(formatter.format, fold(console.log, console.log))
  *
  * moneyPrint(5000)
  * //> Rp 5000
  *
  * moneyPrint("hello world")
- * //> [TypeError: invalid value]
+ * //> value should be a number
  *
  * @since 0.0.1
  * @category Currency

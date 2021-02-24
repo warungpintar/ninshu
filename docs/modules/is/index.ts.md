@@ -1,6 +1,6 @@
 ---
-title: Is/index.ts
-nav_order: 4
+title: is/index.ts
+nav_order: 5
 parent: Modules
 ---
 

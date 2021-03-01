@@ -1,6 +1,6 @@
 ---
 title: Object.ts
-nav_order: 2
+nav_order: 10
 parent: Modules
 ---
 

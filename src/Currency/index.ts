@@ -5,7 +5,7 @@ import * as E from "fp-ts/Either";
 import { Lazy, flow } from "fp-ts/function";
 import { lazy } from "../internal";
 import { validateNumber, validateNotNil, validateString } from "../Validators";
-import { isNumber } from "../is";
+import { isNumber } from "../Is";
 import { INumberFormat } from "../Number";
 import { id, ILocale } from "../locale";
 

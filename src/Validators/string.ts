@@ -1,8 +1,8 @@
 /**
  * @since 0.0.1
  */
-import * as E from "fp-ts/Either";
 import { isString } from "../Is";
+import { validate } from "./validate";
 
 /**
  * validate string type
@@ -10,5 +10,4 @@ import { isString } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateString = (errorMessage: string) => <A>(value: A) =>
-  isString(value) ? E.right("" + value) : E.left(errorMessage);
+export const validateString = validate<string>(isString);

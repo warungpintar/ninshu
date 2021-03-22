@@ -1,6 +1,6 @@
 ---
 title: Validators/ip.ts
-nav_order: 17
+nav_order: 20
 parent: Modules
 ---
 
@@ -28,7 +28,7 @@ validate ipv6
 **Signature**
 
 ```ts
-export declare const validateIPv4: (errorMessage: string) => <A>(value: A) => E.Left<string> | E.Right<A>
+export declare const validateIPv4: <E>(b: E) => <A>(a: A) => Either<E, string>
 ```
 
 Added in v0.0.2
@@ -40,7 +40,7 @@ validate ipv6
 **Signature**
 
 ```ts
-export declare const validateIPv6: (errorMessage: string) => <A>(value: A) => E.Left<string> | E.Right<A>
+export declare const validateIPv6: <E>(b: E) => <A>(a: A) => Either<E, string>
 ```
 
 Added in v0.0.2
@@ -52,7 +52,7 @@ validate ipv4 / ipv6
 **Signature**
 
 ```ts
-export declare const validateIp: (errorMessage: string) => <A>(value: A) => E.Left<string> | E.Right<A>
+export declare const validateIp: <E>(b: E) => <A>(a: A) => Either<E, string>
 ```
 
 Added in v0.0.2

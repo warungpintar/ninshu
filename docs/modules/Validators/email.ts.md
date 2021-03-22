@@ -1,6 +1,6 @@
 ---
 title: Validators/email.ts
-nav_order: 15
+nav_order: 18
 parent: Modules
 ---
 
@@ -26,7 +26,7 @@ validate email type
 **Signature**
 
 ```ts
-export declare const validateEmail: (errorMessage: string) => <A>(value: A) => E.Left<string> | E.Right<A>
+export declare const validateEmail: <E>(b: E) => <A>(a: A) => Either<E, string>
 ```
 
 Added in v0.0.2

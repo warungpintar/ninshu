@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "repository": "git@github.com:warungpintar/ninshu.git",
   "author": "adeyahya <adeyahyaprasetyo@gmail.com>",
-  "homepage": "https://ninshu.warpin.vercel.app/",
+  "homepage": "https://warungpintar.github.io/ninshu/",
   "license": "MIT",
   "main": "lib/index.js",
   "unpkg": "dist/ninshu.development.js",

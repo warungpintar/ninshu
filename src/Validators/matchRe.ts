@@ -1,8 +1,8 @@
 /**
  * @since 0.0.1
  */
-import * as E from "fp-ts/Either";
 import { isMatchRe } from "../Is";
+import { validate } from "./validate";
 
 /**
  * validate string with regex
@@ -10,6 +10,5 @@ import { isMatchRe } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateMatchRe = (re: RegExp, errorMessage: string) => <A>(
-  value: A
-) => (isMatchRe(re)(value) ? E.right(value) : E.left(errorMessage));
+export const validateMatchRe = <E>(re: RegExp, e: E) =>
+  validate(isMatchRe(re))(e);

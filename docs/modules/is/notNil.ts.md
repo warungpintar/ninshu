@@ -1,6 +1,6 @@
 ---
 title: Is/notNil.ts
-nav_order: 9
+nav_order: 11
 parent: Modules
 ---
 
@@ -13,13 +13,13 @@ Added in v0.0.1
 <h2 class="text-delta">Table of contents</h2>
 
 - [Is](#is)
-  - [isNotNil](#isnotnil)
+  - [~~isNotNil~~](#isnotnil)
 
 ---
 
 # Is
 
-## isNotNil
+## ~~isNotNil~~
 
 check if it's not nil
 

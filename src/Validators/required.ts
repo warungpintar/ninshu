@@ -1,13 +1,13 @@
 /**
  * @since 0.0.2
  */
-import { isEmail } from "../Is";
+import { isRequired } from "../Is";
 import { validate } from "./validate";
 
 /**
- * validate email type
+ * validate nil
  *
  * @since 0.0.2
  * @category Validators
  */
-export const validateEmail = validate<string>(isEmail);
+export const validateRequired = validate(isRequired);

@@ -1,9 +1,8 @@
 /**
  * @since 0.0.2
  */
-
-import * as E from "fp-ts/Either";
 import { isFqdn } from "../Is";
+import { validate } from "./validate";
 
 /**
  * validate Fully qualified domain name
@@ -11,5 +10,4 @@ import { isFqdn } from "../Is";
  * @since 0.0.2
  * @category Validators
  */
-export const validateFqdn = (errorMessage: string) => <A>(value: A) =>
-  isFqdn(value) ? E.right(value) : E.left(errorMessage);
+export const validateFqdn = validate<string>(isFqdn);

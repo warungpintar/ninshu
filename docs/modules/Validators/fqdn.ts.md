@@ -1,6 +1,6 @@
 ---
 title: Validators/fqdn.ts
-nav_order: 16
+nav_order: 19
 parent: Modules
 ---
 
@@ -26,7 +26,7 @@ validate Fully qualified domain name
 **Signature**
 
 ```ts
-export declare const validateFqdn: (errorMessage: string) => <A>(value: A) => E.Left<string> | E.Right<A>
+export declare const validateFqdn: <E>(b: E) => <A>(a: A) => Either<E, string>
 ```
 
 Added in v0.0.2

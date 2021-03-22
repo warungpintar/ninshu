@@ -1,9 +1,8 @@
 /**
  * @since 0.0.2
  */
-
-import * as E from "fp-ts/Either";
 import { isIp, isIPv4, isIPv6 } from "../Is";
+import { validate } from "./validate";
 
 /**
  * validate ipv4 / ipv6
@@ -11,8 +10,7 @@ import { isIp, isIPv4, isIPv6 } from "../Is";
  * @since 0.0.2
  * @category Validators
  */
-export const validateIp = (errorMessage: string) => <A>(value: A) =>
-  isIp(value) ? E.right(value) : E.left(errorMessage);
+export const validateIp = validate<string>(isIp);
 
 /**
  * validate ipv6
@@ -20,8 +18,7 @@ export const validateIp = (errorMessage: string) => <A>(value: A) =>
  * @since 0.0.2
  * @category Validators
  */
-export const validateIPv4 = (errorMessage: string) => <A>(value: A) =>
-  isIPv4(value) ? E.right(value) : E.left(errorMessage);
+export const validateIPv4 = validate<string>(isIPv4);
 
 /**
  * validate ipv6
@@ -29,5 +26,4 @@ export const validateIPv4 = (errorMessage: string) => <A>(value: A) =>
  * @since 0.0.2
  * @category Validators
  */
-export const validateIPv6 = (errorMessage: string) => <A>(value: A) =>
-  isIPv6(value) ? E.right(value) : E.left(errorMessage);
+export const validateIPv6 = validate<string>(isIPv6);

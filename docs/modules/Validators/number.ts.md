@@ -1,6 +1,6 @@
 ---
 title: Validators/number.ts
-nav_order: 16
+nav_order: 20
 parent: Modules
 ---
 
@@ -26,7 +26,7 @@ validate number type
 **Signature**
 
 ```ts
-export declare const validateNumber: (errorMessage: string) => (value: unknown) => E.Left<string> | E.Right<number>
+export declare const validateNumber: (errorMessage: string) => <A>(value: A) => E.Left<string> | E.Right<number>
 ```
 
 Added in v0.0.1

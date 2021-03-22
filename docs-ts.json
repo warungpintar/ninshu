@@ -5,6 +5,8 @@
     "src/locale/index.ts",
     "src/locale/**/*.ts",
     "src/internal/**/*.ts",
-    "src/Number/**/*.ts"
+    "src/Number/**/*.ts",
+    "src/Is/index.ts",
+    "src/Validators/index.ts"
   ]
 }

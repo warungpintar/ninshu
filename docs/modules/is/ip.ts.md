@@ -1,0 +1,60 @@
+---
+title: Is/ip.ts
+nav_order: 7
+parent: Modules
+---
+
+## ip overview
+
+Added in v0.0.2
+
+---
+
+<h2 class="text-delta">Table of contents</h2>
+
+- [Is](#is)
+  - [isIPv4](#isipv4)
+  - [isIPv6](#isipv6)
+  - [isIp](#isip)
+
+---
+
+# Is
+
+## isIPv4
+
+Validate IPv4
+This is a modified version of github.com/chriso/validator.js `isIP` (version === 4)
+
+**Signature**
+
+```ts
+export declare const isIPv4: <A>(val: A) => boolean
+```
+
+Added in v0.0.2
+
+## isIPv6
+
+Validate IPv6
+This is a modified version of github.com/chriso/validator.js `isIP` (version === 6)
+
+**Signature**
+
+```ts
+export declare const isIPv6: <A>(val: A) => boolean
+```
+
+Added in v0.0.2
+
+## isIp
+
+check if it's ipv4 / ipv6
+
+**Signature**
+
+```ts
+export declare const isIp: <A>(val: A) => boolean
+```
+
+Added in v0.0.2

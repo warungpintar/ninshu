@@ -1,5 +1,5 @@
 ---
-title: is/array.ts
+title: Is/array.ts
 nav_order: 4
 parent: Modules
 ---

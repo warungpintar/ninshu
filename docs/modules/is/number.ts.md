@@ -1,6 +1,6 @@
 ---
-title: is/number.ts
-nav_order: 8
+title: Is/number.ts
+nav_order: 10
 parent: Modules
 ---
 

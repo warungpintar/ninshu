@@ -6,6 +6,9 @@ import { isString } from "./string";
 /**
  * Validate IPv4
  * This is a modified version of github.com/chriso/validator.js `isIP` (version === 4)
+ *
+ * @since 0.0.2
+ * @category Is
  */
 export const isIPv4 = <A>(val: A) => {
   if (!val || !isString(val)) {
@@ -29,6 +32,9 @@ export const isIPv4 = <A>(val: A) => {
 /**
  * Validate IPv6
  * This is a modified version of github.com/chriso/validator.js `isIP` (version === 6)
+ *
+ * @since 0.0.2
+ * @category Is
  */
 export const isIPv6 = <A>(val: A) => {
   if (!val || !isString(val)) {
@@ -83,6 +89,12 @@ export const isIPv6 = <A>(val: A) => {
   return blocks.length === expectedNumberOfBlocks;
 };
 
+/**
+ * check if it's ipv4 / ipv6
+ *
+ * @since 0.0.2
+ * @category Is
+ */
 export const isIp = <A>(val: A) => {
   return isIPv4(val) || isIPv6(val);
 };

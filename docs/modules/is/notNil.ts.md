@@ -1,6 +1,6 @@
 ---
-title: is/notNil.ts
-nav_order: 7
+title: Is/notNil.ts
+nav_order: 9
 parent: Modules
 ---
 

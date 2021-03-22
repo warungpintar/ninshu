@@ -10,5 +10,5 @@ import { isNotNil } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateNotNil = (errorMessage: string) => (value: unknown) =>
+export const validateNotNil = (errorMessage: string) => <A>(value: A) =>
   isNotNil(value) ? E.right(value) : E.left(errorMessage);

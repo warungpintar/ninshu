@@ -10,6 +10,6 @@ import { isMatchRe } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateMatchRe = (re: RegExp, errorMessage: string) => (
-  value: unknown
+export const validateMatchRe = (re: RegExp, errorMessage: string) => <A>(
+  value: A
 ) => (isMatchRe(re)(value) ? E.right(value) : E.left(errorMessage));

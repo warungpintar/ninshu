@@ -10,5 +10,5 @@ import { isString } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateString = (errorMessage: string) => (value: unknown) =>
+export const validateString = (errorMessage: string) => <A>(value: A) =>
   isString(value) ? E.right("" + value) : E.left(errorMessage);

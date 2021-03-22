@@ -8,3 +8,6 @@ export * from "./matchRe";
 export * from "./notNil";
 export * from "./number";
 export * from "./string";
+export * from "./fqdn";
+export * from "./email";
+export * from "./ip";

@@ -10,5 +10,5 @@ import { isNumber } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateNumber = (errorMessage: string) => (value: unknown) =>
+export const validateNumber = (errorMessage: string) => <A>(value: A) =>
   isNumber(value) ? E.right(Number(value)) : E.left(errorMessage);

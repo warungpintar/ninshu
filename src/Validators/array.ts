@@ -11,5 +11,5 @@ import { isArray } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateArray = (errorMessage: string) => (value: unknown) =>
-  isArray(value) ? E.right(value as unknown[]) : E.left(errorMessage);
+export const validateArray = (errorMessage: string) => <A>(value: A | A[]) =>
+  isArray(value) ? E.right(value) : E.left(errorMessage);

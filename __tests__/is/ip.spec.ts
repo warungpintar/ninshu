@@ -25,7 +25,7 @@ describe("postive cases", () => {
     expect(isIPv4("192.000.1.1")).toBeTruthy();
   });
 
-  test.each(validIpv6List)("ipv6 %s", (ip) => {
+  test.each(validIpv6List)("ipv6 postive %s", (ip) => {
     expect(isIPv6(ip)).toBeTruthy();
   });
 

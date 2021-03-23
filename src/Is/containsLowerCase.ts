@@ -1,7 +1,7 @@
 /**
  * @since 0.0.2
  */
-import { isString } from "./string";
+import { isMatchRe } from "./matchRe";
 
 /**
  * check if it's contains lower case
@@ -9,10 +9,4 @@ import { isString } from "./string";
  * @since 0.0.2
  * @category Is
  */
-export const isContainLowerCase = (val: any) => {
-  if (!val || !isString(val)) return false;
-
-  const _val = "" + val;
-
-  return /[a-z]{1,}/.test(_val);
-};
+export const isContainLowerCase = isMatchRe(/[a-z]{1,}/);

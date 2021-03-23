@@ -11,6 +11,6 @@ import * as E from "fp-ts/Either";
  */
 export const validate = <T>(f: (a: any) => boolean) => <E>(b: E) => <A>(
   a: A
-): E.Either<E, unknown extends T ? A : T> => {
+): E.Either<E, unknown extends T ? (unknown extends A ? any : A) : T> => {
   return f(a) ? E.right(a as any) : E.left(b);
 };

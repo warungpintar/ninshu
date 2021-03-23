@@ -10,4 +10,4 @@ import { validate } from "./validate";
  * @since 0.0.2
  * @category Validators
  */
-export const validateRequired = validate(isRequired);
+export const validateRequired = validate((val) => isRequired(val));

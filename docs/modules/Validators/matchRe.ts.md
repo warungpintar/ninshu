@@ -1,6 +1,6 @@
 ---
 title: Validators/matchRe.ts
-nav_order: 21
+nav_order: 24
 parent: Modules
 ---
 

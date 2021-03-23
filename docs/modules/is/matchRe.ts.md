@@ -1,6 +1,6 @@
 ---
 title: Is/matchRe.ts
-nav_order: 10
+nav_order: 12
 parent: Modules
 ---
 

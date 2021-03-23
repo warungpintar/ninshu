@@ -14,3 +14,5 @@ export * from "./ip";
 export * from "./containsLowerCase";
 export * from "./containsUpperCase";
 export * from "./required";
+export * from "./length";
+export * from "./is";

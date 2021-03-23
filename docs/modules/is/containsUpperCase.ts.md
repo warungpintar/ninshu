@@ -26,7 +26,7 @@ check if it's contains upper case
 **Signature**
 
 ```ts
-export declare const isContainUpperCase: (val: any) => boolean
+export declare const isContainUpperCase: (a: any) => boolean
 ```
 
 Added in v0.0.2

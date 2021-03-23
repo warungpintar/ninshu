@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * @since 0.0.2
  */

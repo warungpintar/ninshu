@@ -26,7 +26,7 @@ check if it's contains lower case
 **Signature**
 
 ```ts
-export declare const isContainLowerCase: (val: any) => boolean
+export declare const isContainLowerCase: (a: any) => boolean
 ```
 
 Added in v0.0.2

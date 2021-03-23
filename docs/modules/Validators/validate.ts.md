@@ -28,7 +28,7 @@ validate with custom condition
 ```ts
 export declare const validate: <T>(
   f: (a: any) => boolean
-) => <E>(b: E) => <A>(a: A) => E.Either<E, unknown extends T ? A : T>
+) => <E>(b: E) => <A>(a: A) => E.Either<E, unknown extends T ? (unknown extends A ? any : A) : T>
 ```
 
 Added in v0.0.2

@@ -26,7 +26,7 @@ validate length
 **Signature**
 
 ```ts
-export declare const validateLength: <E>(len: number, e: E) => <A>(val: A) => Either<E, A>
+export declare const validateLength: <E>(len: number, e: E) => <A>(val: A) => Either<E, unknown extends A ? any : A>
 ```
 
 Added in v0.0.2

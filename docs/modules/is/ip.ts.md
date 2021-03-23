@@ -24,7 +24,6 @@ Added in v0.0.2
 ## isIPv4
 
 Validate IPv4
-This is a modified version of github.com/chriso/validator.js `isIP` (version === 4)
 
 **Signature**
 
@@ -37,7 +36,6 @@ Added in v0.0.2
 ## isIPv6
 
 Validate IPv6
-This is a modified version of github.com/chriso/validator.js `isIP` (version === 6)
 
 **Signature**
 

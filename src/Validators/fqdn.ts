@@ -10,4 +10,5 @@ import { validate } from "./validate";
  * @since 0.0.2
  * @category Validators
  */
-export const validateFqdn = validate<string>(isFqdn);
+export const validateFqdn = <E>(e: E) => <A>(val: A) =>
+  validate(isFqdn)(e)(val);

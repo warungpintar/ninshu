@@ -26,7 +26,7 @@ validate Fully qualified domain name
 **Signature**
 
 ```ts
-export declare const validateFqdn: <E>(b: E) => <A>(a: A) => Either<E, string>
+export declare const validateFqdn: <E>(e: E) => <A>(val: A) => Either<E, unknown extends A ? any : A>
 ```
 
 Added in v0.0.2

@@ -1,7 +1,7 @@
 /**
  * @since 0.0.2
  */
-import { isContainUpperCase } from "../Is";
+import { isContainUpperCase } from "../Is/containsUpperCase";
 import { validate } from "./validate";
 
 /**

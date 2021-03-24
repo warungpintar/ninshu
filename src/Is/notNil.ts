@@ -9,4 +9,4 @@
  * @category Is
  * @deprecated use isRequired instead
  */
-export const isNotNil = (a: any) => a !== null && a !== undefined;
+export const isNotNil = (a: any) => a !== null && a !== undefined && a !== "";

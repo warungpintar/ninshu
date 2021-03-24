@@ -1,7 +1,7 @@
 /**
  * @since 0.0.2
  */
-import { isFqdn } from "../Is";
+import { isFqdn } from "../Is/fqdn";
 import { validate } from "./validate";
 
 /**

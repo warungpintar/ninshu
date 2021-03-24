@@ -1,7 +1,7 @@
 /**
  * @since 0.0.1
  */
-import { isMatchRe } from "../Is";
+import { isMatchRe } from "../Is/matchRe";
 import { validate } from "./validate";
 
 /**

@@ -1,7 +1,7 @@
 /**
  * @since 0.0.2
  */
-import { isIp, isIPv4, isIPv6 } from "../Is";
+import { isIp, isIPv4, isIPv6 } from "../Is/ip";
 import { validate } from "./validate";
 
 /**

@@ -1,7 +1,7 @@
 /**
  * @since 0.0.2
  */
-import { isRequired } from "../Is";
+import { isRequired } from "../Is/required";
 import { validate } from "./validate";
 
 /**

@@ -4,7 +4,8 @@
 
 import * as E from "fp-ts/Either";
 import { flow } from "fp-ts/function";
-import { validateRequired, validateString } from "../Validators";
+import { validateRequired } from "../Validators/required";
+import { validateString } from "../Validators/string";
 import { isMatchRe } from "./matchRe";
 
 type FQDN = {

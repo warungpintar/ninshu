@@ -1,7 +1,8 @@
 /**
  * @since 0.0.2
  */
-import { isOdd, isNumber } from "../Is";
+import { isOdd } from "../Is/odd";
+import { isNumber } from "../Is/number";
 import { and } from "../Operators";
 import { validate } from "./validate";
 

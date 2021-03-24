@@ -1,6 +1,6 @@
 ---
 title: Validators/email.ts
-nav_order: 20
+nav_order: 23
 parent: Modules
 ---
 

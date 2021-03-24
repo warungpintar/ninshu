@@ -14,3 +14,5 @@ export * from "./validateContainsLowerCase";
 export * from "./validateContainsUpperCase";
 export * from "./required";
 export * from "./length";
+export * from "./even";
+export * from "./odd";

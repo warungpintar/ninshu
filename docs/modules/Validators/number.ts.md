@@ -1,6 +1,6 @@
 ---
 title: Validators/number.ts
-nav_order: 26
+nav_order: 30
 parent: Modules
 ---
 

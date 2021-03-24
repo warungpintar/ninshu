@@ -16,3 +16,5 @@ export * from "./containsUpperCase";
 export * from "./required";
 export * from "./length";
 export * from "./is";
+export * from "./odd";
+export * from "./even";

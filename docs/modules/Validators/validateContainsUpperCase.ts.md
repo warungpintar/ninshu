@@ -1,6 +1,6 @@
 ---
 title: Validators/validateContainsUpperCase.ts
-nav_order: 31
+nav_order: 36
 parent: Modules
 ---
 

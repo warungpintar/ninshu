@@ -16,3 +16,4 @@ export * from "./required";
 export * from "./length";
 export * from "./even";
 export * from "./odd";
+export * from "./eq";

@@ -29,4 +29,15 @@ and operator
 export declare const and: (a: Fn) => (b: Fn) => <A>(val: A) => boolean
 ```
 
+**Example**
+
+```ts
+import { and, isEq, isNumber } from '@warungpintar/ninshu'
+
+const isNine = and(isNumber)(isEq(9))
+
+console.log(isNine(9))
+//> true
+```
+
 Added in v0.0.2

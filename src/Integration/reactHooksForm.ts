@@ -13,8 +13,6 @@ type Error = {
   message: string;
 };
 
-type Errors = Record<string, Error>;
-
 /**
  * React Hooks Form Resolver wrapper for validations
  *
@@ -25,7 +23,8 @@ export const RHFResolver = <T extends Record<string, any>>(
   resolver: Resolver<T>
 ) => (values: Record<keyof T, any>) => {
   const errorsObj = resolver(values);
-  const errors = Object.keys(errorsObj).reduce((prev, next) => {
+  const errorsKeys = Object.keys(errorsObj);
+  const errors = errorsKeys.reduce((prev, next: keyof T) => {
     const currentValidator = errorsObj[next];
     const currentResult = currentValidator && currentValidator(values[next]);
 
@@ -37,7 +36,7 @@ export const RHFResolver = <T extends Record<string, any>>(
     }
 
     return prev;
-  }, {} as Errors);
+  }, {} as Record<keyof T, Error>);
 
   return Promise.resolve({
     values: {},

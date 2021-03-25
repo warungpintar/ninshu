@@ -4,3 +4,4 @@ export * from "./Currency";
 export * from "./Is";
 export * from "./Validators";
 export * from "./Operators";
+export * from "./Integration";

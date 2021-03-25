@@ -1,9 +1,8 @@
 /**
  * @since 0.0.1
  */
-
-import * as E from "fp-ts/Either";
-import { isArray } from "../Is";
+import { isArray } from "../Is/array";
+import { validate } from "./validate";
 
 /**
  * validate array type
@@ -11,5 +10,5 @@ import { isArray } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateArray = (errorMessage: string) => (value: unknown) =>
-  isArray(value) ? E.right(value as unknown[]) : E.left(errorMessage);
+export const validateArray = <E>(e: E) => <A>(val: A[]) =>
+  validate(isArray)(e)(val);

@@ -1,5 +1,5 @@
 ---
-title: is/alpha.ts
+title: Is/alpha.ts
 nav_order: 2
 parent: Modules
 ---

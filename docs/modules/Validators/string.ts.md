@@ -1,6 +1,6 @@
 ---
 title: Validators/string.ts
-nav_order: 17
+nav_order: 34
 parent: Modules
 ---
 
@@ -26,7 +26,7 @@ validate string type
 **Signature**
 
 ```ts
-export declare const validateString: (errorMessage: string) => (value: unknown) => E.Left<string> | E.Right<string>
+export declare const validateString: <E>(b: E) => <A>(a: A) => Either<E, string>
 ```
 
 Added in v0.0.1

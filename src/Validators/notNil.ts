@@ -1,8 +1,8 @@
 /**
  * @since 0.0.1
  */
-import * as E from "fp-ts/Either";
-import { isNotNil } from "../Is";
+import { isNotNil } from "../Is/notNil";
+import { validate } from "./validate";
 
 /**
  * validate nil
@@ -10,5 +10,4 @@ import { isNotNil } from "../Is";
  * @since 0.0.1
  * @category Validators
  */
-export const validateNotNil = (errorMessage: string) => (value: unknown) =>
-  isNotNil(value) ? E.right(value) : E.left(errorMessage);
+export const validateNotNil = validate(isNotNil);

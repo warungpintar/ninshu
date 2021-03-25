@@ -1,6 +1,6 @@
 ---
 title: Validators/notNil.ts
-nav_order: 15
+nav_order: 30
 parent: Modules
 ---
 
@@ -26,7 +26,7 @@ validate nil
 **Signature**
 
 ```ts
-export declare const validateNotNil: (errorMessage: string) => (value: unknown) => E.Left<string> | E.Right<unknown>
+export declare const validateNotNil: <E>(b: E) => <A>(a: A) => Either<E, unknown extends A ? any : A>
 ```
 
 Added in v0.0.1

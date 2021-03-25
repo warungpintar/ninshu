@@ -1,6 +1,6 @@
 ---
 title: Validators/matchRe.ts
-nav_order: 14
+nav_order: 29
 parent: Modules
 ---
 
@@ -26,10 +26,7 @@ validate string with regex
 **Signature**
 
 ```ts
-export declare const validateMatchRe: (
-  re: RegExp,
-  errorMessage: string
-) => (value: unknown) => E.Left<string> | E.Right<unknown>
+export declare const validateMatchRe: <E>(re: RegExp, e: E) => <A>(a: A) => Either<E, unknown extends A ? any : A>
 ```
 
 Added in v0.0.1

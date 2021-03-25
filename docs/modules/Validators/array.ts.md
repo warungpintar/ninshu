@@ -1,6 +1,6 @@
 ---
 title: Validators/array.ts
-nav_order: 12
+nav_order: 22
 parent: Modules
 ---
 
@@ -26,7 +26,7 @@ validate array type
 **Signature**
 
 ```ts
-export declare const validateArray: (errorMessage: string) => (value: unknown) => E.Right<unknown[]> | E.Left<string>
+export declare const validateArray: <E>(e: E) => <A>(val: A[]) => Either<E, A[]>
 ```
 
 Added in v0.0.1

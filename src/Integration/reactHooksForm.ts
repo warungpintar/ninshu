@@ -38,8 +38,10 @@ export const RHFResolver = <T extends Record<string, any>>(
     return prev;
   }, {} as Record<keyof T, Error>);
 
+  const isError = Object.values(errors).length > 0;
+
   return Promise.resolve({
-    values: {},
+    values: isError ? {} : (values as {}),
     errors,
   });
 };

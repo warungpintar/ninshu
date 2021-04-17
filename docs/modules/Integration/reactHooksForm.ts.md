@@ -28,7 +28,7 @@ React Hooks Form Resolver wrapper for validations
 ```ts
 export declare const RHFResolver: <T extends Record<string, any>>(
   resolver: Resolver<T>
-) => (values: Record<keyof T, any>) => Promise<{ values: {}; errors: Record<string, Error> }>
+) => (values: Record<keyof T, any>) => Promise<{ values: {}; errors: Record<keyof T, Error> }>
 ```
 
 Added in v0.0.3

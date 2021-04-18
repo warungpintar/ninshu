@@ -7,7 +7,6 @@ export * from "./array";
 export * from "./matchRe";
 export * from "./string";
 export * from "./email";
-export * from "./ip";
 export * from "./fqdn";
 export * from "./validate";
 export * from "./validateContainsLowerCase";

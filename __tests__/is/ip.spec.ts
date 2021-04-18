@@ -1,4 +1,4 @@
-import { isIPv4, isIPv6, isIp } from "../../src/Is";
+import { isIPv4, isIPv6, isIp } from "../../src";
 
 // source https://www.ibm.com/support/knowledgecenter/STQRQ9/com.ibm.storage.ts4500.doc/ts4500_opg_3584_IPv4_IPv6_addresses.html
 const validIpv6List = [

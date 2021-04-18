@@ -3,10 +3,11 @@
  */
 import * as E from "fp-ts/Either";
 import { flow } from "fp-ts/function";
-import { validateMatchRe } from "../Validators/matchRe";
-import { validateRequired } from "../Validators/required";
-import { validateString } from "../Validators/string";
-import { isMatchRe } from "./matchRe";
+import { validateMatchRe } from "./Validators/matchRe";
+import { validateRequired } from "./Validators/required";
+import { validateString } from "./Validators/string";
+import { validate } from "./Validators/validate";
+import { isMatchRe } from "./Is/matchRe";
 
 /**
  * Validate IPv4
@@ -36,7 +37,7 @@ type IPV6Block = {
   foundIPv4TransitionBlock: boolean;
 };
 
-const parseBlock = (val: string) => {
+const _parseBlock = (val: string) => {
   return {
     blocks: val.split(":"),
     raw: val,
@@ -50,7 +51,7 @@ const parseBlock = (val: string) => {
 // (i.e. 2 of the blocks) in IPv4 notation, and RFC 3493 says
 // that '::ffff:a.b.c.d' is valid for IPv4-mapped IPv6 addresses,
 // and '::a.b.c.d' is deprecated, but also valid.
-const parseIPv4TransitionBlock = (block: IPV6Block) => {
+const _parseIPv4TransitionBlock = (block: IPV6Block) => {
   const { blocks } = block;
   const lastBlock = blocks[blocks.length - 1];
 
@@ -67,7 +68,7 @@ const parseIPv4TransitionBlock = (block: IPV6Block) => {
 
 const ipv6BlockRe = /^[0-9A-F]{1,4}$/i;
 
-const validateIPV6Block = (block: IPV6Block) => {
+const _validateIPV6Block = (block: IPV6Block) => {
   let foundOmissionBlock = block.foundOmissionBlock;
   let blocks = block.blocks;
   const { foundIPv4TransitionBlock } = block;
@@ -94,7 +95,7 @@ const validateIPV6Block = (block: IPV6Block) => {
   return E.right({ ...block, blocks, foundOmissionBlock });
 };
 
-const findOmissionBlock = (block: IPV6Block) => {
+const _findOmissionBlock = (block: IPV6Block) => {
   const { blocks, raw } = block;
 
   if (raw.substr(0, 2) === "::") {
@@ -128,16 +129,16 @@ export const isIPv6 = <A>(val: A) => {
     E.chain(validateString(false)),
     // early exit using left
     E.chain((val) => (val === "::" ? E.left(true) : E.right(val))),
-    E.map(parseBlock),
+    E.map(_parseBlock),
     // ipv6 should not contains more than 8 block
     E.chain((val) =>
       val.blocks.length > val.expectedNumberOfBlocks
         ? E.left(false)
         : E.right(val)
     ),
-    E.map(findOmissionBlock),
-    E.map(parseIPv4TransitionBlock),
-    E.chain(validateIPV6Block),
+    E.map(_findOmissionBlock),
+    E.map(_parseIPv4TransitionBlock),
+    E.chain(_validateIPV6Block),
     E.fold(
       (e) => e,
       (val) =>
@@ -157,3 +158,51 @@ export const isIPv6 = <A>(val: A) => {
 export const isIp = <A>(val: A) => {
   return isIPv4(val) || isIPv6(val);
 };
+
+/**
+ * ipv4 either
+ *
+ * @since 0.0.6
+ * @category Either
+ */
+export const ipv4 = <A>(val: A) => (isIPv4(val) ? E.right(val) : E.left(val));
+
+/**
+ * ipv6 either
+ *
+ * @since 0.0.6
+ * @category Either
+ */
+export const ipv6 = <A>(val: A) => (isIPv6(val) ? E.right(val) : E.left(val));
+
+/**
+ * ip either
+ *
+ * @since 0.0.6
+ * @category Either
+ */
+export const ip = <A>(val: A) => (isIp(val) ? E.right(val) : E.left(val));
+
+/**
+ * validate ipv4 / ipv6
+ *
+ * @since 0.0.2
+ * @category Validators
+ */
+export const validateIp = validate<string>(isIp);
+
+/**
+ * validate ipv6
+ *
+ * @since 0.0.2
+ * @category Validators
+ */
+export const validateIPv4 = validate<string>(isIPv4);
+
+/**
+ * validate ipv6
+ *
+ * @since 0.0.2
+ * @category Validators
+ */
+export const validateIPv6 = validate<string>(isIPv6);

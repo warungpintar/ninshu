@@ -5,3 +5,8 @@ export * from "./Is";
 export * from "./Validators";
 export * from "./Operators";
 export * from "./Integration";
+export * from "./gt";
+export * from "./lt";
+export * from "./gte";
+export * from "./lte";
+export * from "./ip";

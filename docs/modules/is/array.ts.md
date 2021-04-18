@@ -1,6 +1,6 @@
 ---
 title: Is/array.ts
-nav_order: 5
+nav_order: 8
 parent: Modules
 ---
 

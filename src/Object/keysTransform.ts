@@ -3,7 +3,6 @@
  */
 import { map, reduce } from "fp-ts/Array";
 import { pipe, flow } from "fp-ts/function";
-import { camelCase, snakeCase } from "./String";
 
 const mapType = <A, B>(
   onArr: (a: A[]) => A[],
@@ -46,30 +45,3 @@ export const keysTransform = (processor: (input: string) => string) => (
     mapType(handleArray, handleObject, (n) => n)
   );
 };
-
-/**
- * Recursively transform all keys of object/array to camelCase
- *
- * @example
- * import { keysCamelCase } from '@warungpintar/ninshu'
- *
- * keysCamelCase({FULL_NAME: 'rin'}) // output: {fullName: 'rin'}
- *
- * @category object
- * @since 1.0.0-alpha
- */
-export const keysCamelCase = flow(keysTransform(camelCase));
-
-/**
- * Recursively transform all keys of object/array to snake_case
- *
- * @example
- * import { keysSnakeCase } from '@warungpintar/ninshu'
- *
- * keysSnakeCase({fullName: 'rin'})
- * // => output: {full_name: 'rin'}
- *
- * @category object
- * @since 1.0.0-alpha
- */
-export const keysSnakeCase = flow(keysTransform(snakeCase));

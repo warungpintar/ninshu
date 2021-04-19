@@ -9,6 +9,7 @@
     "src/Is/index.ts",
     "src/Validators/index.ts",
     "src/Operators/index.ts",
-    "src/Integration/index.ts"
+    "src/Integration/index.ts",
+    "src/Object/index.ts"
   ]
 }

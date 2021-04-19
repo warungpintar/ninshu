@@ -10,7 +10,6 @@ export * from "./number";
 export * from "./string";
 export * from "./fqdn";
 export * from "./email";
-export * from "./ip";
 export * from "./containsLowerCase";
 export * from "./containsUpperCase";
 export * from "./required";

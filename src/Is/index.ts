@@ -17,3 +17,4 @@ export * from "./length";
 export * from "./is";
 export * from "./odd";
 export * from "./even";
+export * from "./deepEq";

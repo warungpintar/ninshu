@@ -10,3 +10,4 @@ export * from "./lt";
 export * from "./gte";
 export * from "./lte";
 export * from "./ip";
+export * from "./uniqueElements";
